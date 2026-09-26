@@ -1,0 +1,252 @@
+{
+  "source_root": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src",
+  "files": [
+    {
+      "module": "fastwam",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/__init__.py",
+      "destination": "src/fastwam/__init__.py",
+      "sha256": "c4149c5ff0f9abd1517360daf761e692feb8570eb7a0caa2dfde52d4412c3e23"
+    },
+    {
+      "module": "fastwam.models",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/__init__.py",
+      "destination": "src/fastwam/models/__init__.py",
+      "sha256": "ae4c5733f4bbf7caf31df2ae6f789516f6a10cd84a321f7d0375a7034253ac6d"
+    },
+    {
+      "module": "fastwam.models.pixeldit",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/__init__.py",
+      "destination": "src/fastwam/models/pixeldit/__init__.py",
+      "sha256": "1747880ed56622a20f5f9a8165435cadd825edbe1ffaa99131594c4ce7583920"
+    },
+    {
+      "module": "fastwam.models.pixeldit.action_world_initialization",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/action_world_initialization.py",
+      "destination": "src/fastwam/models/pixeldit/action_world_initialization.py",
+      "sha256": "ae99401944f05f8fab4a45c776c9c3f606d8bb41e9429998cc6b581da98f74ae"
+    },
+    {
+      "module": "fastwam.models.pixeldit.all_mosaic_flow_statistics",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/all_mosaic_flow_statistics.py",
+      "destination": "src/fastwam/models/pixeldit/all_mosaic_flow_statistics.py",
+      "sha256": "fe426f381677151413ff97bb115592c9ea6a7055ab6f077d88d701eb6b577a98"
+    },
+    {
+      "module": "fastwam.models.pixeldit.conditioning",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/conditioning.py",
+      "destination": "src/fastwam/models/pixeldit/conditioning.py",
+      "sha256": "06b89a214744cd65771a2701bbfa64874e5a4dc022f41f73f6a0a517e1c4db09"
+    },
+    {
+      "module": "fastwam.models.pixeldit.factory",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/factory.py",
+      "destination": "src/fastwam/models/pixeldit/factory.py",
+      "sha256": "92b3f2ec2954c1f4bba5f860879c46b3e29a399a4af657493e126fbb5bd82976"
+    },
+    {
+      "module": "fastwam.models.pixeldit.fastwam_pixeldit",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/fastwam_pixeldit.py",
+      "destination": "src/fastwam/models/pixeldit/fastwam_pixeldit.py",
+      "sha256": "18648a0398e08c4559d5843f04eebbb8c2a351e6028915aa9c63bfa70c9c8d56"
+    },
+    {
+      "module": "fastwam.models.pixeldit.feature_statistics_artifact",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/feature_statistics_artifact.py",
+      "destination": "src/fastwam/models/pixeldit/feature_statistics_artifact.py",
+      "sha256": "28a137f6ed76441ea7d00b41b1399b4ae668e4b0c83a76c18e5738eeb5039059"
+    },
+    {
+      "module": "fastwam.models.pixeldit.geometry_normalization",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/geometry_normalization.py",
+      "destination": "src/fastwam/models/pixeldit/geometry_normalization.py",
+      "sha256": "395d3afe9c018b61336748bbe4447338d19016b4cfe017594082a3f6f60b9970"
+    },
+    {
+      "module": "fastwam.models.pixeldit.head_flow_statistics",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/head_flow_statistics.py",
+      "destination": "src/fastwam/models/pixeldit/head_flow_statistics.py",
+      "sha256": "962831a283cc7e980ae295c3347dd6dba05a112bbd5f7887235e617961283567"
+    },
+    {
+      "module": "fastwam.models.pixeldit.hybrid_cw_action_mot",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/hybrid_cw_action_mot.py",
+      "destination": "src/fastwam/models/pixeldit/hybrid_cw_action_mot.py",
+      "sha256": "ab8aac55c7259929e1dcffcca6cbae8e9585bd1ae3f382becd0c6bc463e771a4"
+    },
+    {
+      "module": "fastwam.models.pixeldit.hybrid_cw_pixeldit",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/hybrid_cw_pixeldit.py",
+      "destination": "src/fastwam/models/pixeldit/hybrid_cw_pixeldit.py",
+      "sha256": "9547ff2fc6292dbadf92ce9ad5648994e82c6b1a6e5c00f57b8787dbcb046be0"
+    },
+    {
+      "module": "fastwam.models.pixeldit.hybrid_fastwam_pixeldit",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/hybrid_fastwam_pixeldit.py",
+      "destination": "src/fastwam/models/pixeldit/hybrid_fastwam_pixeldit.py",
+      "sha256": "2e8b88f55a53985d7fc418b855c86745a54643026da1558158cd305974554a55"
+    },
+    {
+      "module": "fastwam.models.pixeldit.hybrid_normalization",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/hybrid_normalization.py",
+      "destination": "src/fastwam/models/pixeldit/hybrid_normalization.py",
+      "sha256": "9b204cbaeafdb58bfa93e2118f726592e2d95178bad4abc4de487679313a5419"
+    },
+    {
+      "module": "fastwam.models.pixeldit.hybrid_normalization_artifact",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/hybrid_normalization_artifact.py",
+      "destination": "src/fastwam/models/pixeldit/hybrid_normalization_artifact.py",
+      "sha256": "c754f76c988a4f90581b4015d92fd32dd5367779bcc201d8e80b608fca25f077"
+    },
+    {
+      "module": "fastwam.models.pixeldit.kflow",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/kflow.py",
+      "destination": "src/fastwam/models/pixeldit/kflow.py",
+      "sha256": "86b80982a8394cc2d039b3e7cfd7a351493573264aa1452b77bb7ccd78666cd5"
+    },
+    {
+      "module": "fastwam.models.pixeldit.method_contract",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/method_contract.py",
+      "destination": "src/fastwam/models/pixeldit/method_contract.py",
+      "sha256": "3b32fff014ecebdfd1edf8c940923e7e0f12cf22891e6e5b6ba6fa0f59eba338"
+    },
+    {
+      "module": "fastwam.models.pixeldit.model",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/model.py",
+      "destination": "src/fastwam/models/pixeldit/model.py",
+      "sha256": "4b1ad9adc2e66b836816e59d7e22ccbc4c76b236ddce7135db5d9dcf33d486a2"
+    },
+    {
+      "module": "fastwam.models.pixeldit.modules",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/modules.py",
+      "destination": "src/fastwam/models/pixeldit/modules.py",
+      "sha256": "695a427850f703042c05fc16437ea8f8ccd15db4f4ac2409de72839fe9c4686f"
+    },
+    {
+      "module": "fastwam.models.pixeldit.momap_flow",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/momap_flow.py",
+      "destination": "src/fastwam/models/pixeldit/momap_flow.py",
+      "sha256": "376ee852836e5e53fe21d8f6d37696897415dc5bcebd4058d3bc2956eab6bf43"
+    },
+    {
+      "module": "fastwam.models.pixeldit.normalization",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/normalization.py",
+      "destination": "src/fastwam/models/pixeldit/normalization.py",
+      "sha256": "cdab88e82ed4cf8701e44212f19a4423d00246fbf5360e88dccc70164f0cd030"
+    },
+    {
+      "module": "fastwam.models.pixeldit.pixeldit_action_mot",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/pixeldit_action_mot.py",
+      "destination": "src/fastwam/models/pixeldit/pixeldit_action_mot.py",
+      "sha256": "c7a61872c0fc99361377b2bd0f159d6bb44b1adcbd00819220b8204e5cb0f17d"
+    },
+    {
+      "module": "fastwam.models.pixeldit.pixeldit_aligned_action",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/pixeldit_aligned_action.py",
+      "destination": "src/fastwam/models/pixeldit/pixeldit_aligned_action.py",
+      "sha256": "77555420bc8a27f8fa1eaaa6dd3a1c623a786fdb7378c52ccdb029dfb5a40eea"
+    },
+    {
+      "module": "fastwam.models.pixeldit.pixeldit_aligned_action_mot",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/pixeldit_aligned_action_mot.py",
+      "destination": "src/fastwam/models/pixeldit/pixeldit_aligned_action_mot.py",
+      "sha256": "603dda8cc775619d9c70ab56cbb322c133faf79224a5d2e9e2e42d4a86c0a1ef"
+    },
+    {
+      "module": "fastwam.models.wan22",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/__init__.py",
+      "destination": "src/fastwam/models/wan22/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "fastwam.models.wan22.action_dit",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/action_dit.py",
+      "destination": "src/fastwam/models/wan22/action_dit.py",
+      "sha256": "f96a7b5c915028212abd48156e19161d5eff7d4ac3ad79ca8c77ae1339e062f3"
+    },
+    {
+      "module": "fastwam.models.wan22.action_dit_checkpoint",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/action_dit_checkpoint.py",
+      "destination": "src/fastwam/models/wan22/action_dit_checkpoint.py",
+      "sha256": "f89826f769225e279bdfc0a60511535a72cb1fc050f54e1c79482533744b9c73"
+    },
+    {
+      "module": "fastwam.models.wan22.helpers",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/helpers/__init__.py",
+      "destination": "src/fastwam/models/wan22/helpers/__init__.py",
+      "sha256": "f26116de229557a37a4812dc4ee75971f5f9e8b80240786ea4d0e5b0ff703cbf"
+    },
+    {
+      "module": "fastwam.models.wan22.helpers.gradient",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/helpers/gradient.py",
+      "destination": "src/fastwam/models/wan22/helpers/gradient.py",
+      "sha256": "ba5d8f7272eb029dc6cd2849ca99b70f6ad5abb838d21c818beb0590620dc793"
+    },
+    {
+      "module": "fastwam.models.wan22.helpers.io",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/helpers/io.py",
+      "destination": "src/fastwam/models/wan22/helpers/io.py",
+      "sha256": "1c6c1bc8a975b47092912833194fce25e2e3ac886fbab72d73af3ff5a00b3c62"
+    },
+    {
+      "module": "fastwam.models.wan22.helpers.state_dict_converters",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/helpers/state_dict_converters.py",
+      "destination": "src/fastwam/models/wan22/helpers/state_dict_converters.py",
+      "sha256": "81d213373e5056a8d8bf31768b9b04164138ea78d0b306e316334841499f4bf9"
+    },
+    {
+      "module": "fastwam.models.wan22.schedulers.scheduler_continuous",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/schedulers/scheduler_continuous.py",
+      "destination": "src/fastwam/models/wan22/schedulers/scheduler_continuous.py",
+      "sha256": "ff638ed0f2309fceee71e2e9f01f9c8b2f2e736566ebcf92910b91404e7c13ae"
+    },
+    {
+      "module": "fastwam.models.wan22.wan_video_dit",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/wan_video_dit.py",
+      "destination": "src/fastwam/models/wan22/wan_video_dit.py",
+      "sha256": "d098ad77665feeefa81634f31f5bb1d5771c4556d1a67859135f0ed35f9eb6c2"
+    },
+    {
+      "module": "fastwam.utils",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/__init__.py",
+      "destination": "src/fastwam/utils/__init__.py",
+      "sha256": "2893c05b99b17162941c70a41859c2808f8ae390be367a26cac7d5ab93ee197b"
+    },
+    {
+      "module": "fastwam.utils.checkpoint_integrity",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/checkpoint_integrity.py",
+      "destination": "src/fastwam/utils/checkpoint_integrity.py",
+      "sha256": "ec34a77a69d4a29156f8faa67ab8a97a5e689ce7e1db826fe1283625eb90e62d"
+    },
+    {
+      "module": "fastwam.utils.fs",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/fs.py",
+      "destination": "src/fastwam/utils/fs.py",
+      "sha256": "69e6df236b43360428a613686c8f37c531c0d16a3a2c5b06a725c46b49d657c5"
+    },
+    {
+      "module": "fastwam.utils.logging_config",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/logging_config.py",
+      "destination": "src/fastwam/utils/logging_config.py",
+      "sha256": "a3311585b3ae7d7c9b1ff8e50df2688a7c7607024eb48f129efd2737d5df0348"
+    },
+    {
+      "module": "fastwam.utils.paths",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/paths.py",
+      "destination": "src/fastwam/utils/paths.py",
+      "sha256": "e5248d7529ffe6f25854534588c5037151bcf430d1c8e98a037e1d43f42c5288"
+    },
+    {
+      "module": "fastwam.utils.video_io",
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/video_io.py",
+      "destination": "src/fastwam/utils/video_io.py",
+      "sha256": "9e9898b021a44e87aa1b4e6d13e3755a9869a2e27a7eb53c72a6802808d5bd80"
+    }
+  ],
+  "support_files": [
+    {
+      "source": "FastWAM_minimal/scripts/run_with_result.py",
+      "destination": "scripts/run_with_result.py",
+      "sha256": "5cbda60620c9c38ba1f698ca15ff1c0a273267d6fe5b16123ab3d08fd5e4f51b"
+    }
+  ]
+}

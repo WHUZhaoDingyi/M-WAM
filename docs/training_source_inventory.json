@@ -1,0 +1,782 @@
+{
+  "source_root": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src",
+  "files": [
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/__init__.py",
+      "destination": "src/mwam/datasets/__init__.py",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/__init__.py",
+      "destination": "src/mwam/datasets/robotwin_momap/__init__.py",
+      "source_sha256": "943a9c6ecfbb2ed4ae64d38360acffc8489d24cde3b1e3a7573f200b04b67c08",
+      "sha256": "943a9c6ecfbb2ed4ae64d38360acffc8489d24cde3b1e3a7573f200b04b67c08",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/collator.py",
+      "destination": "src/mwam/datasets/robotwin_momap/collator.py",
+      "source_sha256": "a4835fa5fe16eb8f0ac2a9d13084c41026f89e58926401e89fd2db6f25776bee",
+      "sha256": "a4835fa5fe16eb8f0ac2a9d13084c41026f89e58926401e89fd2db6f25776bee",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/dataset.py",
+      "destination": "src/mwam/datasets/robotwin_momap/dataset.py",
+      "source_sha256": "514896b6f08a23f5951fba20adbf4edbca645b4b3629880e931570e6be68b79e",
+      "sha256": "49b254b164cd73d0a646807792f197a4f6034f390db660dc7ae0c406948bb071",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/factory.py",
+      "destination": "src/mwam/datasets/robotwin_momap/factory.py",
+      "source_sha256": "f80202ad2970b7377c7b950013a30538620e0e2d0cbde9e27d8e88ad5f8659c5",
+      "sha256": "f80202ad2970b7377c7b950013a30538620e0e2d0cbde9e27d8e88ad5f8659c5",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/formal_v1.py",
+      "destination": "src/mwam/datasets/robotwin_momap/formal_v1.py",
+      "source_sha256": "1ab874e01d853d51c96157ad4be1b769ba0bd3e1e9d9da9009f899b6528f868e",
+      "sha256": "1ab874e01d853d51c96157ad4be1b769ba0bd3e1e9d9da9009f899b6528f868e",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/interfaces.py",
+      "destination": "src/mwam/datasets/robotwin_momap/interfaces.py",
+      "source_sha256": "e88e3d592f1b37de418051b47fe06f04d3d76434bcef09282a6e14ea22b05fe0",
+      "sha256": "e88e3d592f1b37de418051b47fe06f04d3d76434bcef09282a6e14ea22b05fe0",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/prompt_index.py",
+      "destination": "src/mwam/datasets/robotwin_momap/prompt_index.py",
+      "source_sha256": "acca1324fe6f121e110d1e81233b1a6236c82e169d598b31786fc7c8353e27aa",
+      "sha256": "acca1324fe6f121e110d1e81233b1a6236c82e169d598b31786fc7c8353e27aa",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/route_b_language_offline.py",
+      "destination": "src/mwam/datasets/robotwin_momap/route_b_language_offline.py",
+      "source_sha256": "b9e300d24cce1707c74f1030c99d54b85193cbcbe82bf7e52992b7687a5a273b",
+      "sha256": "b9e300d24cce1707c74f1030c99d54b85193cbcbe82bf7e52992b7687a5a273b",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/route_b_language_v2.py",
+      "destination": "src/mwam/datasets/robotwin_momap/route_b_language_v2.py",
+      "source_sha256": "1923f1b6bccb6f85f3b156258ed0639b661b387f85a976447bccd11239f2a4c8",
+      "sha256": "1923f1b6bccb6f85f3b156258ed0639b661b387f85a976447bccd11239f2a4c8",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/schema.py",
+      "destination": "src/mwam/datasets/robotwin_momap/schema.py",
+      "source_sha256": "b6b1aebc312a4eff95c929f41e4ac1c14808e051e73a77bbfbdb9a4064b2fef3",
+      "sha256": "b6b1aebc312a4eff95c929f41e4ac1c14808e051e73a77bbfbdb9a4064b2fef3",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/source_conditions.py",
+      "destination": "src/mwam/datasets/robotwin_momap/source_conditions.py",
+      "source_sha256": "e3cc5bfc2e07ec21abc4792811f159477bb01dc4005b070d6ee5ac22ac1b5c61",
+      "sha256": "477ec5edc81f467a69a011a2d22a07fddd647c8ea343f3ac9ee4a5f2dfb9525a",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/source_input_augmentation.py",
+      "destination": "src/mwam/datasets/robotwin_momap/source_input_augmentation.py",
+      "source_sha256": "bc12bb5dc20ef9a21e805972ee02f536762fc33dd8826278a026af13c1d3c605",
+      "sha256": "bc12bb5dc20ef9a21e805972ee02f536762fc33dd8826278a026af13c1d3c605",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/text_cache.py",
+      "destination": "src/mwam/datasets/robotwin_momap/text_cache.py",
+      "source_sha256": "2ec987307cc0adc94d0f58029a097cd40d574413d510021c582361163fd45dae",
+      "sha256": "2ec987307cc0adc94d0f58029a097cd40d574413d510021c582361163fd45dae",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/text_cache_preload.py",
+      "destination": "src/mwam/datasets/robotwin_momap/text_cache_preload.py",
+      "source_sha256": "7aeaca3929637507ccfebfe9e2865f8f800f03bed26f544867f95860c90b9015",
+      "sha256": "7aeaca3929637507ccfebfe9e2865f8f800f03bed26f544867f95860c90b9015",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/v1_index.py",
+      "destination": "src/mwam/datasets/robotwin_momap/v1_index.py",
+      "source_sha256": "76802201a7b837ef6edd0ad8d5cb944dc0ce7ba843e0cf583ae0fe1ed5e7b0d6",
+      "sha256": "0bcdbe294830821170cdf6898aae6535d96eed705d10958bb7d31a3cb9cec2bd",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/v1_index_cache.py",
+      "destination": "src/mwam/datasets/robotwin_momap/v1_index_cache.py",
+      "source_sha256": "7fdf4a905dd448cc8d4e611d3e6838d3d74ac7c4672b0945cff8c2f149b567b4",
+      "sha256": "03e6ce9349ecd961c817db2a432b391824e9cd3fd561d37e408a922675a16e86",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/v1_source.py",
+      "destination": "src/mwam/datasets/robotwin_momap/v1_source.py",
+      "source_sha256": "ef73b9f17a14595a1ecf9e2fb7f11cc7220d3313e03127f65370ccd5e5c573d2",
+      "sha256": "ce1d7b505606f69c3db4c440b277307880819ed4456372f3c0c0e24f3002e616",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/datasets/robotwin_momap/v1_target_builder.py",
+      "destination": "src/mwam/datasets/robotwin_momap/v1_target_builder.py",
+      "source_sha256": "ea8d9de0f4fbc3492f283dc113b4833b8a9c5a309897683ec4c5b9e9d5c6ad78",
+      "sha256": "3cad076c94ba44f4d49e2666fc76b114f087821a718ec96e3c996452ac1f3895",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/evaluation/__init__.py",
+      "destination": "src/mwam/evaluation/__init__.py",
+      "source_sha256": "01acb652d82d3ebc609cd6c10f6032e45ac49711b2b06fb8dbd1dd9be626ffaf",
+      "sha256": "01acb652d82d3ebc609cd6c10f6032e45ac49711b2b06fb8dbd1dd9be626ffaf",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/evaluation/contracts.py",
+      "destination": "src/mwam/evaluation/contracts.py",
+      "source_sha256": "61b27bf8f4d0c0e4aacd5a79e566ea5c88764e71f2312e988ed96fe9f9bd6ab6",
+      "sha256": "61b27bf8f4d0c0e4aacd5a79e566ea5c88764e71f2312e988ed96fe9f9bd6ab6",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/__init__.py",
+      "destination": "src/mwam/models/__init__.py",
+      "source_sha256": "ae4c5733f4bbf7caf31df2ae6f789516f6a10cd84a321f7d0375a7034253ac6d",
+      "sha256": "ae4c5733f4bbf7caf31df2ae6f789516f6a10cd84a321f7d0375a7034253ac6d",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/__init__.py",
+      "destination": "src/mwam/models/pixeldit/__init__.py",
+      "source_sha256": "1747880ed56622a20f5f9a8165435cadd825edbe1ffaa99131594c4ce7583920",
+      "sha256": "1747880ed56622a20f5f9a8165435cadd825edbe1ffaa99131594c4ce7583920",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/action_world_initialization.py",
+      "destination": "src/mwam/models/pixeldit/action_world_initialization.py",
+      "source_sha256": "ae99401944f05f8fab4a45c776c9c3f606d8bb41e9429998cc6b581da98f74ae",
+      "sha256": "0ad1cb0d6ff17ca7f8e0ca1c2ae710d94c0d1a1cf28ed84c8ad393da805a114d",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/all_mosaic_flow_statistics.py",
+      "destination": "src/mwam/models/pixeldit/all_mosaic_flow_statistics.py",
+      "source_sha256": "fe426f381677151413ff97bb115592c9ea6a7055ab6f077d88d701eb6b577a98",
+      "sha256": "fe426f381677151413ff97bb115592c9ea6a7055ab6f077d88d701eb6b577a98",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/conditioning.py",
+      "destination": "src/mwam/models/pixeldit/conditioning.py",
+      "source_sha256": "06b89a214744cd65771a2701bbfa64874e5a4dc022f41f73f6a0a517e1c4db09",
+      "sha256": "06b89a214744cd65771a2701bbfa64874e5a4dc022f41f73f6a0a517e1c4db09",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/factory.py",
+      "destination": "src/mwam/models/pixeldit/factory.py",
+      "source_sha256": "92b3f2ec2954c1f4bba5f860879c46b3e29a399a4af657493e126fbb5bd82976",
+      "sha256": "c89f4e48f341a3c32df95642f3993a201722dd9f9697f5e272f975d454e1a62a",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/fastwam_pixeldit.py",
+      "destination": "src/mwam/models/pixeldit/fastwam_pixeldit.py",
+      "source_sha256": "18648a0398e08c4559d5843f04eebbb8c2a351e6028915aa9c63bfa70c9c8d56",
+      "sha256": "83942f2129b51cc56ecd8e72a3fbde277463a8b0f924fb68ed232ec7e759b9cf",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/feature_statistics_artifact.py",
+      "destination": "src/mwam/models/pixeldit/feature_statistics_artifact.py",
+      "source_sha256": "28a137f6ed76441ea7d00b41b1399b4ae668e4b0c83a76c18e5738eeb5039059",
+      "sha256": "28a137f6ed76441ea7d00b41b1399b4ae668e4b0c83a76c18e5738eeb5039059",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/geometry_normalization.py",
+      "destination": "src/mwam/models/pixeldit/geometry_normalization.py",
+      "source_sha256": "395d3afe9c018b61336748bbe4447338d19016b4cfe017594082a3f6f60b9970",
+      "sha256": "395d3afe9c018b61336748bbe4447338d19016b4cfe017594082a3f6f60b9970",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/head_flow_statistics.py",
+      "destination": "src/mwam/models/pixeldit/head_flow_statistics.py",
+      "source_sha256": "962831a283cc7e980ae295c3347dd6dba05a112bbd5f7887235e617961283567",
+      "sha256": "962831a283cc7e980ae295c3347dd6dba05a112bbd5f7887235e617961283567",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/hybrid_cw_action_mot.py",
+      "destination": "src/mwam/models/pixeldit/hybrid_cw_action_mot.py",
+      "source_sha256": "ab8aac55c7259929e1dcffcca6cbae8e9585bd1ae3f382becd0c6bc463e771a4",
+      "sha256": "ab8aac55c7259929e1dcffcca6cbae8e9585bd1ae3f382becd0c6bc463e771a4",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/hybrid_cw_pixeldit.py",
+      "destination": "src/mwam/models/pixeldit/hybrid_cw_pixeldit.py",
+      "source_sha256": "9547ff2fc6292dbadf92ce9ad5648994e82c6b1a6e5c00f57b8787dbcb046be0",
+      "sha256": "dfa4390ea8c74454fae8a9def3d7f21127978b8ca5ab8eded8ba4d15f3795915",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/hybrid_fastwam_pixeldit.py",
+      "destination": "src/mwam/models/pixeldit/hybrid_fastwam_pixeldit.py",
+      "source_sha256": "2e8b88f55a53985d7fc418b855c86745a54643026da1558158cd305974554a55",
+      "sha256": "2e8b88f55a53985d7fc418b855c86745a54643026da1558158cd305974554a55",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/hybrid_normalization.py",
+      "destination": "src/mwam/models/pixeldit/hybrid_normalization.py",
+      "source_sha256": "9b204cbaeafdb58bfa93e2118f726592e2d95178bad4abc4de487679313a5419",
+      "sha256": "9b204cbaeafdb58bfa93e2118f726592e2d95178bad4abc4de487679313a5419",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/hybrid_normalization_artifact.py",
+      "destination": "src/mwam/models/pixeldit/hybrid_normalization_artifact.py",
+      "source_sha256": "c754f76c988a4f90581b4015d92fd32dd5367779bcc201d8e80b608fca25f077",
+      "sha256": "c754f76c988a4f90581b4015d92fd32dd5367779bcc201d8e80b608fca25f077",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/kflow.py",
+      "destination": "src/mwam/models/pixeldit/kflow.py",
+      "source_sha256": "86b80982a8394cc2d039b3e7cfd7a351493573264aa1452b77bb7ccd78666cd5",
+      "sha256": "86b80982a8394cc2d039b3e7cfd7a351493573264aa1452b77bb7ccd78666cd5",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/libero_gradient_schedule.py",
+      "destination": "src/mwam/models/pixeldit/libero_gradient_schedule.py",
+      "source_sha256": "b9dd54f7a9cb9f463f3025406e8fe10a051b54fbe612c6c959d5d919dd495914",
+      "sha256": "b9dd54f7a9cb9f463f3025406e8fe10a051b54fbe612c6c959d5d919dd495914",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/method_contract.py",
+      "destination": "src/mwam/models/pixeldit/method_contract.py",
+      "source_sha256": "3b32fff014ecebdfd1edf8c940923e7e0f12cf22891e6e5b6ba6fa0f59eba338",
+      "sha256": "3b32fff014ecebdfd1edf8c940923e7e0f12cf22891e6e5b6ba6fa0f59eba338",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/model.py",
+      "destination": "src/mwam/models/pixeldit/model.py",
+      "source_sha256": "4b1ad9adc2e66b836816e59d7e22ccbc4c76b236ddce7135db5d9dcf33d486a2",
+      "sha256": "83f898d634639422418c122acec9a098e79bb7e470265cb3d26ad9a0420dfc60",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/modules.py",
+      "destination": "src/mwam/models/pixeldit/modules.py",
+      "source_sha256": "695a427850f703042c05fc16437ea8f8ccd15db4f4ac2409de72839fe9c4686f",
+      "sha256": "695a427850f703042c05fc16437ea8f8ccd15db4f4ac2409de72839fe9c4686f",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/momap_flow.py",
+      "destination": "src/mwam/models/pixeldit/momap_flow.py",
+      "source_sha256": "376ee852836e5e53fe21d8f6d37696897415dc5bcebd4058d3bc2956eab6bf43",
+      "sha256": "376ee852836e5e53fe21d8f6d37696897415dc5bcebd4058d3bc2956eab6bf43",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/normalization.py",
+      "destination": "src/mwam/models/pixeldit/normalization.py",
+      "source_sha256": "cdab88e82ed4cf8701e44212f19a4423d00246fbf5360e88dccc70164f0cd030",
+      "sha256": "cdab88e82ed4cf8701e44212f19a4423d00246fbf5360e88dccc70164f0cd030",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/pixeldit_action_mot.py",
+      "destination": "src/mwam/models/pixeldit/pixeldit_action_mot.py",
+      "source_sha256": "c7a61872c0fc99361377b2bd0f159d6bb44b1adcbd00819220b8204e5cb0f17d",
+      "sha256": "c7a61872c0fc99361377b2bd0f159d6bb44b1adcbd00819220b8204e5cb0f17d",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/pixeldit_aligned_action.py",
+      "destination": "src/mwam/models/pixeldit/pixeldit_aligned_action.py",
+      "source_sha256": "77555420bc8a27f8fa1eaaa6dd3a1c623a786fdb7378c52ccdb029dfb5a40eea",
+      "sha256": "77555420bc8a27f8fa1eaaa6dd3a1c623a786fdb7378c52ccdb029dfb5a40eea",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/pixeldit/pixeldit_aligned_action_mot.py",
+      "destination": "src/mwam/models/pixeldit/pixeldit_aligned_action_mot.py",
+      "source_sha256": "603dda8cc775619d9c70ab56cbb322c133faf79224a5d2e9e2e42d4a86c0a1ef",
+      "sha256": "603dda8cc775619d9c70ab56cbb322c133faf79224a5d2e9e2e42d4a86c0a1ef",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/__init__.py",
+      "destination": "src/mwam/models/wan22/__init__.py",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/action_dit.py",
+      "destination": "src/mwam/models/wan22/action_dit.py",
+      "source_sha256": "f96a7b5c915028212abd48156e19161d5eff7d4ac3ad79ca8c77ae1339e062f3",
+      "sha256": "5dfad81eb66949ddcba8d5845abf120c213131e077773c6d24343011e15206d3",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/action_dit_checkpoint.py",
+      "destination": "src/mwam/models/wan22/action_dit_checkpoint.py",
+      "source_sha256": "f89826f769225e279bdfc0a60511535a72cb1fc050f54e1c79482533744b9c73",
+      "sha256": "dd779259755365d326d853cb58c89e9d3615a05df47a5bceba24b6d0189924c3",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/helpers/__init__.py",
+      "destination": "src/mwam/models/wan22/helpers/__init__.py",
+      "source_sha256": "f26116de229557a37a4812dc4ee75971f5f9e8b80240786ea4d0e5b0ff703cbf",
+      "sha256": "f26116de229557a37a4812dc4ee75971f5f9e8b80240786ea4d0e5b0ff703cbf",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/helpers/gradient.py",
+      "destination": "src/mwam/models/wan22/helpers/gradient.py",
+      "source_sha256": "ba5d8f7272eb029dc6cd2849ca99b70f6ad5abb838d21c818beb0590620dc793",
+      "sha256": "ba5d8f7272eb029dc6cd2849ca99b70f6ad5abb838d21c818beb0590620dc793",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/helpers/io.py",
+      "destination": "src/mwam/models/wan22/helpers/io.py",
+      "source_sha256": "1c6c1bc8a975b47092912833194fce25e2e3ac886fbab72d73af3ff5a00b3c62",
+      "sha256": "1c6c1bc8a975b47092912833194fce25e2e3ac886fbab72d73af3ff5a00b3c62",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/helpers/loader.py",
+      "destination": "src/mwam/models/wan22/helpers/loader.py",
+      "source_sha256": "3c5eddefe76c6250bdbbbed7d4663ec17e0ba3a6f6520c15bd9762fe01cf3afa",
+      "sha256": "cb1ed7ced179cd68fed3c2a541114548b896675eb306ec407cf97bb958ea38b0",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/helpers/state_dict_converters.py",
+      "destination": "src/mwam/models/wan22/helpers/state_dict_converters.py",
+      "source_sha256": "81d213373e5056a8d8bf31768b9b04164138ea78d0b306e316334841499f4bf9",
+      "sha256": "81d213373e5056a8d8bf31768b9b04164138ea78d0b306e316334841499f4bf9",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/schedulers/scheduler_continuous.py",
+      "destination": "src/mwam/models/wan22/schedulers/scheduler_continuous.py",
+      "source_sha256": "ff638ed0f2309fceee71e2e9f01f9c8b2f2e736566ebcf92910b91404e7c13ae",
+      "sha256": "ff638ed0f2309fceee71e2e9f01f9c8b2f2e736566ebcf92910b91404e7c13ae",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/wan_video_dit.py",
+      "destination": "src/mwam/models/wan22/wan_video_dit.py",
+      "source_sha256": "d098ad77665feeefa81634f31f5bb1d5771c4556d1a67859135f0ed35f9eb6c2",
+      "sha256": "979142602f050bad34de17c9710542064e7d275a1f5314c8a1fc6ef6f83fd0d6",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/wan_video_text_encoder.py",
+      "destination": "src/mwam/models/wan22/wan_video_text_encoder.py",
+      "source_sha256": "aedf7f131556a39b99a273deec3a85d67f41b5367cef41f310f33a807ae60a87",
+      "sha256": "aedf7f131556a39b99a273deec3a85d67f41b5367cef41f310f33a807ae60a87",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/models/wan22/wan_video_vae.py",
+      "destination": "src/mwam/models/wan22/wan_video_vae.py",
+      "source_sha256": "eaa97230a54dab2f9978f176392fcdc4a03db9264040804f8aed94796aeb5cdb",
+      "sha256": "eaa97230a54dab2f9978f176392fcdc4a03db9264040804f8aed94796aeb5cdb",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/robotwin_momap/__init__.py",
+      "destination": "src/mwam/robotwin_momap/__init__.py",
+      "source_sha256": "0d032b31a4099728a0ac7a5513f1f6e37dc5874de9cb7bc3a46e7441d030e9a9",
+      "sha256": "0d032b31a4099728a0ac7a5513f1f6e37dc5874de9cb7bc3a46e7441d030e9a9",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/robotwin_momap/episode_publication.py",
+      "destination": "src/mwam/robotwin_momap/episode_publication.py",
+      "source_sha256": "d4de92b01793e9b233c8878c415b8569e13ab4fc3c2c2897a54f7cefe9319cb5",
+      "sha256": "d4de92b01793e9b233c8878c415b8569e13ab4fc3c2c2897a54f7cefe9319cb5",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/robotwin_momap/flow_builder.py",
+      "destination": "src/mwam/robotwin_momap/flow_builder.py",
+      "source_sha256": "37c99dd4156762b497e0f75daa814e94c0951a002e2980919af222f57984b86f",
+      "sha256": "37c99dd4156762b497e0f75daa814e94c0951a002e2980919af222f57984b86f",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/robotwin_momap/production_schema_policy.py",
+      "destination": "src/mwam/robotwin_momap/production_schema_policy.py",
+      "source_sha256": "7fe1870fef13035d82b9f0e51b749c4e1545a2201956b1c31e68af76302aaa8f",
+      "sha256": "f62b860151edfc9883b57719cc8947e72ac5d64eab99408b84c7f0fa8db8b563",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/robotwin_momap/raw_episode_hdf5.py",
+      "destination": "src/mwam/robotwin_momap/raw_episode_hdf5.py",
+      "source_sha256": "74a1631fcb02d463148b90205831d64da60467b2901c030f61c3ff210d594661",
+      "sha256": "74a1631fcb02d463148b90205831d64da60467b2901c030f61c3ff210d594661",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/robotwin_momap/se3.py",
+      "destination": "src/mwam/robotwin_momap/se3.py",
+      "source_sha256": "d35043b02909ef3b68fa8547baa655332915abcd179a7c606c48ce0421d1d29b",
+      "sha256": "d35043b02909ef3b68fa8547baa655332915abcd179a7c606c48ce0421d1d29b",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/robotwin_momap/source_grid_cache.py",
+      "destination": "src/mwam/robotwin_momap/source_grid_cache.py",
+      "source_sha256": "dfa4964966bba81e3d5d5f31049a89235da186861df763f87daf65d083b18203",
+      "sha256": "dfa4964966bba81e3d5d5f31049a89235da186861df763f87daf65d083b18203",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/robotwin_momap/source_scene_identity.py",
+      "destination": "src/mwam/robotwin_momap/source_scene_identity.py",
+      "source_sha256": "61428a96a4fb07040b34805458864f40242a946ecb02acd22110585e1250b9a9",
+      "sha256": "61428a96a4fb07040b34805458864f40242a946ecb02acd22110585e1250b9a9",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/robotwin_momap/target_service.py",
+      "destination": "src/mwam/robotwin_momap/target_service.py",
+      "source_sha256": "f712da0a1bab6164f23e2a16db7154ccc43316b66173a651d58f0eed708e2f73",
+      "sha256": "f712da0a1bab6164f23e2a16db7154ccc43316b66173a651d58f0eed708e2f73",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/robotwin_momap/temporal_alignment.py",
+      "destination": "src/mwam/robotwin_momap/temporal_alignment.py",
+      "source_sha256": "eafd2a057f2a6845c2d73f1f44199f685ade24491fc30ee2ed9b672b797b0bf8",
+      "sha256": "eafd2a057f2a6845c2d73f1f44199f685ade24491fc30ee2ed9b672b797b0bf8",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/robotwin_momap/visibility.py",
+      "destination": "src/mwam/robotwin_momap/visibility.py",
+      "source_sha256": "662bdbd0d3fd537aedcb9031bce2e8cb4f69ac7fcd743182e05ed1405b0f293c",
+      "sha256": "662bdbd0d3fd537aedcb9031bce2e8cb4f69ac7fcd743182e05ed1405b0f293c",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/trainer.py",
+      "destination": "src/mwam/trainer.py",
+      "source_sha256": "3cd5bfe3b72479c3bd81914f479a8981863c2f6099826678a16ae88c4331bc2f",
+      "sha256": "3fd0b9495fb18770d7ff3f558096eaa136be1db3c9f49f19c7d83679efb82a09",
+      "transformation": "namespace migration; record DataLoader RNG isolation in exact-resume contract"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/__init__.py",
+      "destination": "src/mwam/training/__init__.py",
+      "source_sha256": "c7cc82e8edd14bc2c10043ba0f25a5302f5da42f0ba719ec30612787484fc3ae",
+      "sha256": "c7cc82e8edd14bc2c10043ba0f25a5302f5da42f0ba719ec30612787484fc3ae",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/adaptive_replay.py",
+      "destination": "src/mwam/training/adaptive_replay.py",
+      "source_sha256": "98642c292d8cd5023a1524876d3ba1eac08245612ebdf45b846318e263eb84bf",
+      "sha256": "98642c292d8cd5023a1524876d3ba1eac08245612ebdf45b846318e263eb84bf",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/checkpoint_state.py",
+      "destination": "src/mwam/training/checkpoint_state.py",
+      "source_sha256": "731cce81ea9335ae5bf1584e1ffc58d7af0bd2c59762c052cd41859af1dc93b1",
+      "sha256": "731cce81ea9335ae5bf1584e1ffc58d7af0bd2c59762c052cd41859af1dc93b1",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/deepspeed_contract.py",
+      "destination": "src/mwam/training/deepspeed_contract.py",
+      "source_sha256": "55efab7ae58b1ea53d7b4b82cf3a60856393b57b668576bd1dcda8cdaa05ecb8",
+      "sha256": "55efab7ae58b1ea53d7b4b82cf3a60856393b57b668576bd1dcda8cdaa05ecb8",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/feedback_continuation.py",
+      "destination": "src/mwam/training/feedback_continuation.py",
+      "source_sha256": "46c08a6028721755b35f532704e6b2d7b03d308439acac503dde6d4d5f377696",
+      "sha256": "8d107d6cdc212c3716f7de1803df112ffc63c2ac84233e7dca85d09282a81c89",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/gt_background_migration.py",
+      "destination": "src/mwam/training/gt_background_migration.py",
+      "source_sha256": "54e580c6630a82da6e16e1431a5f1eb322560d201c6fae68345c40ffbe151282",
+      "sha256": "54e580c6630a82da6e16e1431a5f1eb322560d201c6fae68345c40ffbe151282",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/libero_50k_extension.py",
+      "destination": "src/mwam/training/libero_50k_extension.py",
+      "source_sha256": "be4a1750b18b14b63fe38ed5ae5f8d814893b7faf88196cf6962f89934e70d04",
+      "sha256": "840f333f3abc26706ebcf3d4f2ae6178d36ff979dd9882e4a6ad22e07ca2a29f",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/libero_feedback.py",
+      "destination": "src/mwam/training/libero_feedback.py",
+      "source_sha256": "302b1f1396b8d2244859ff220d8111b69fbd059ae0ff59bcdf349f7611008136",
+      "sha256": "9caa0dea59f6e2505a4c8cd916caddcfd8c0d36cb0fc8371d1cf444231cf5b2c",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/libero_scene_rotation.py",
+      "destination": "src/mwam/training/libero_scene_rotation.py",
+      "source_sha256": "b461ec0c9bdbfc608918c1d023b11af2709aa762ebf1a381096bc92efd0691f6",
+      "sha256": "ad82d2d870516dc1ff61adf2bd34ca419f7f4ffaf39c60716a33b2272ca8be98",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/libero_transfer_extension.py",
+      "destination": "src/mwam/training/libero_transfer_extension.py",
+      "source_sha256": "9aa0e1a1c2877ef55221851af06fce1b52b4cee4621e70679e70d60163ff6d94",
+      "sha256": "be2e9c867f412297bda5e827729f6e139753970299a1652452ef3e5fc248328a",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/loop.py",
+      "destination": "src/mwam/training/loop.py",
+      "source_sha256": "4647745a387f77083ddcd36ba6259fa761a800e37199a6ee3cc4ee6d1a505573",
+      "sha256": "4647745a387f77083ddcd36ba6259fa761a800e37199a6ee3cc4ee6d1a505573",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/plus_50k_gradient.py",
+      "destination": "src/mwam/training/plus_50k_gradient.py",
+      "source_sha256": "d90801c268e15955f921f77661ed5ed503cd6c86421a2f776c5a7654f8efa64f",
+      "sha256": "5dbe97f7467b630d02f5dbc989c4c4ff29cc885b3e1446935a9ed7ba717b503b",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/plus_lr_correction.py",
+      "destination": "src/mwam/training/plus_lr_correction.py",
+      "source_sha256": "8c8b6c524e5774417bbc7e7f46459044150b46e55c2f519ae8d9e01508de8335",
+      "sha256": "164739afb49845b4f993e292aa01e127d9bb1b1f2b04ab0e390038923869e001",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/plus_task_replay.py",
+      "destination": "src/mwam/training/plus_task_replay.py",
+      "source_sha256": "da2a95d734baada523a37787a4cd31e16944206451233bda1a6cf88a7652408a",
+      "sha256": "a575778ea73eb3d9bd5b83d11e71229003a0d2127bc03712d022487fb035095e",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/real_budget_extension.py",
+      "destination": "src/mwam/training/real_budget_extension.py",
+      "source_sha256": "242fa6027506779818b27fa56a2160cd6a03c10ff12043c825070001731735d8",
+      "sha256": "242fa6027506779818b27fa56a2160cd6a03c10ff12043c825070001731735d8",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/resume_contract.py",
+      "destination": "src/mwam/training/resume_contract.py",
+      "source_sha256": "a4b7c7d38fbed9762140e70edcda6a0ae4705bcdb511ed09529a4391c52a58b7",
+      "sha256": "a4b7c7d38fbed9762140e70edcda6a0ae4705bcdb511ed09529a4391c52a58b7",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/runtime_checkpoint_control.py",
+      "destination": "src/mwam/training/runtime_checkpoint_control.py",
+      "source_sha256": "1d68067bdfa9f3c9eb2c4bce3a8a96e75b008e379f35f07df14cc622415b0be8",
+      "sha256": "1d68067bdfa9f3c9eb2c4bce3a8a96e75b008e379f35f07df14cc622415b0be8",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/runtime_topology.py",
+      "destination": "src/mwam/training/runtime_topology.py",
+      "source_sha256": "4a4622ead3746a0ba13e5e82f49120813969bed0381683f38e3c581ebc6115a6",
+      "sha256": "4a4622ead3746a0ba13e5e82f49120813969bed0381683f38e3c581ebc6115a6",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/sample_progress_reset.py",
+      "destination": "src/mwam/training/sample_progress_reset.py",
+      "source_sha256": "87c13acf6e503fa428fe46eda4d1cf0b63a5b6fe95b86c7daa5ea4bc560ab1d3",
+      "sha256": "87c13acf6e503fa428fe46eda4d1cf0b63a5b6fe95b86c7daa5ea4bc560ab1d3",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/sampler_loader.py",
+      "destination": "src/mwam/training/sampler_loader.py",
+      "source_sha256": "c7d644b086ce7c90f5b055e5e12970765d41ce7060d2ebaab0d97a800f9acf3f",
+      "sha256": "7b2353f3719e7388d58ccb297e4e4e55df7e3aa69f73eacbae971f339d11d274",
+      "transformation": "namespace migration; opt-in dedicated DataLoader generator for resume RNG isolation"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/scene_replay.py",
+      "destination": "src/mwam/training/scene_replay.py",
+      "source_sha256": "1262d3c5ce58dd17c301bf90b874308d3225a679be12288664883972f60e2040",
+      "sha256": "0b89f8759aabf67a45c55d2de099dbe3e5af94eed80395e3dd394deddb6f8244",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/scene_replay_coverage.py",
+      "destination": "src/mwam/training/scene_replay_coverage.py",
+      "source_sha256": "eb2d1eaa14c00f3f39e7549ceb23a35f11a6839fd27fd81c8f6d588094e2cdd8",
+      "sha256": "eb2d1eaa14c00f3f39e7549ceb23a35f11a6839fd27fd81c8f6d588094e2cdd8",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/strategies.py",
+      "destination": "src/mwam/training/strategies.py",
+      "source_sha256": "6da168e893148fc323447a31ad882b86746cd64bd064cc794e64dd78323627d9",
+      "sha256": "6da168e893148fc323447a31ad882b86746cd64bd064cc794e64dd78323627d9",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/task_replay.py",
+      "destination": "src/mwam/training/task_replay.py",
+      "source_sha256": "f409fc61e30cf2892d20ffe2dbd2b220afd651f402886233c93c32deb597fe82",
+      "sha256": "f409fc61e30cf2892d20ffe2dbd2b220afd651f402886233c93c32deb597fe82",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/telemetry.py",
+      "destination": "src/mwam/training/telemetry.py",
+      "source_sha256": "e748ddf90706d37d54a6c197943782e465d5366a3c67037895edd60d5ed4cda9",
+      "sha256": "e748ddf90706d37d54a6c197943782e465d5366a3c67037895edd60d5ed4cda9",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/training/topology_transition.py",
+      "destination": "src/mwam/training/topology_transition.py",
+      "source_sha256": "1c6b8103dd6ed6827b604f686b2b4627a1ae7e2eceaecac3e77853969bfa6d5e",
+      "sha256": "1c6b8103dd6ed6827b604f686b2b4627a1ae7e2eceaecac3e77853969bfa6d5e",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/__init__.py",
+      "destination": "src/mwam/utils/__init__.py",
+      "source_sha256": "2893c05b99b17162941c70a41859c2808f8ae390be367a26cac7d5ab93ee197b",
+      "sha256": "2893c05b99b17162941c70a41859c2808f8ae390be367a26cac7d5ab93ee197b",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/atomic_directory_publish.py",
+      "destination": "src/mwam/utils/atomic_directory_publish.py",
+      "source_sha256": "f8012a0b4f25237e4055a84a0af12ffef356f4da66f7afca8a59261cc6689565",
+      "sha256": "f8012a0b4f25237e4055a84a0af12ffef356f4da66f7afca8a59261cc6689565",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/checkpoint_integrity.py",
+      "destination": "src/mwam/utils/checkpoint_integrity.py",
+      "source_sha256": "ec34a77a69d4a29156f8faa67ab8a97a5e689ce7e1db826fe1283625eb90e62d",
+      "sha256": "ec34a77a69d4a29156f8faa67ab8a97a5e689ce7e1db826fe1283625eb90e62d",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/config_resolvers.py",
+      "destination": "src/mwam/utils/config_resolvers.py",
+      "source_sha256": "01c48cbd42b86e636b70ccc3e193a81147162ba890777102b2c61086fa415340",
+      "sha256": "01c48cbd42b86e636b70ccc3e193a81147162ba890777102b2c61086fa415340",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/deepspeed_zero2_graph_task_cache.py",
+      "destination": "src/mwam/utils/deepspeed_zero2_graph_task_cache.py",
+      "source_sha256": "53836ac044589eef41d14df09da01311cd72eb60d16916326a5cc3616194ac23",
+      "sha256": "53836ac044589eef41d14df09da01311cd72eb60d16916326a5cc3616194ac23",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/fs.py",
+      "destination": "src/mwam/utils/fs.py",
+      "source_sha256": "69e6df236b43360428a613686c8f37c531c0d16a3a2c5b06a725c46b49d657c5",
+      "sha256": "69e6df236b43360428a613686c8f37c531c0d16a3a2c5b06a725c46b49d657c5",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/jsonl_metrics.py",
+      "destination": "src/mwam/utils/jsonl_metrics.py",
+      "source_sha256": "47b8c1660a34023e6fe4431120fdcad4739fd01c9559f01670b83c1792b87785",
+      "sha256": "47b8c1660a34023e6fe4431120fdcad4739fd01c9559f01670b83c1792b87785",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/legacy_state_directory_manifest.py",
+      "destination": "src/mwam/utils/legacy_state_directory_manifest.py",
+      "source_sha256": "5c43490608ee60053e5596425a298e60fa028d84ad474069ef408669d87fe399",
+      "sha256": "5c43490608ee60053e5596425a298e60fa028d84ad474069ef408669d87fe399",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/logging_config.py",
+      "destination": "src/mwam/utils/logging_config.py",
+      "source_sha256": "a3311585b3ae7d7c9b1ff8e50df2688a7c7607024eb48f129efd2737d5df0348",
+      "sha256": "8df11358e2b874c5059f92f1cd3df783f1de99c2d5225b69080ee5785d0dc1ca",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/paths.py",
+      "destination": "src/mwam/utils/paths.py",
+      "source_sha256": "e5248d7529ffe6f25854534588c5037151bcf430d1c8e98a037e1d43f42c5288",
+      "sha256": "091e2557cdb2bea9804bb3f9bcd86c91c246b0b6e8478687042ad182634b1dd9",
+      "transformation": "namespace migration; remove import-time cluster configs/paths.json requirement"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/pytorch_utils.py",
+      "destination": "src/mwam/utils/pytorch_utils.py",
+      "source_sha256": "ffc483e7fb435cd654326750eaffdbfc9243837c3140dcc74e45b24abb751a33",
+      "sha256": "ffc483e7fb435cd654326750eaffdbfc9243837c3140dcc74e45b24abb751a33",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/samplers.py",
+      "destination": "src/mwam/utils/samplers.py",
+      "source_sha256": "ff918cb41b5837226298ea3fcda50f7b361964e66996818c0154043c8ddf55c3",
+      "sha256": "ff918cb41b5837226298ea3fcda50f7b361964e66996818c0154043c8ddf55c3",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/state_directory_manifest.py",
+      "destination": "src/mwam/utils/state_directory_manifest.py",
+      "source_sha256": "5ec63dc0093194e51694dd3370894f166577f5ea468af9913c20e50905438d0c",
+      "sha256": "5ec63dc0093194e51694dd3370894f166577f5ea468af9913c20e50905438d0c",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/utils/video_io.py",
+      "destination": "src/mwam/utils/video_io.py",
+      "source_sha256": "9e9898b021a44e87aa1b4e6d13e3755a9869a2e27a7eb53c72a6802808d5bd80",
+      "sha256": "9e9898b021a44e87aa1b4e6d13e3755a9869a2e27a7eb53c72a6802808d5bd80",
+      "transformation": "Python import namespace only; preserve serialized format/schema identifiers"
+    },
+    {
+      "source": "FastWAM_minimal/runtime/robotwin_all3d_imagenet50k_20260924/src/fastwam/runtime.py",
+      "destination": "src/mwam/runtime.py",
+      "source_sha256": "66466142c69e3b0dbfc6b3cf63f82f50638c0fe356fe047f42b1662ad550fee9",
+      "sha256": "2265e75c62bd3ff67c9d35b8f6f2d7768f087b39e5869b51b82f2229351b6ef0",
+      "transformation": "retain native training orchestration only; return trainer to report actual completed step"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+data:
+  train:
+    _target_: mwam.datasets.robotwin_momap.factory.create_v1_momap_dataset
+    prompt_index_file: null
+    text_embedding_cache_dir: null
+    offsets:
+    - 8
+    - 16
+    - 24
+    - 32
+    future_horizons_seconds:
+    - 0.5333333333333333
+    - 1.0666666666666667
+    - 1.6
+    - 2.1333333333333333
+    future_offset_basis: fastwam_clip_frame@15hz
+    camera_names:
+    - head_camera
+    - left_camera
+    - right_camera
+    grid_size:
+    - 240
+    - 320
+    coordinate_frame: head_camera@source_t0
+    reference_camera_name: head_camera
+    target_backend: cpu_dataloader
+    validate_collator_samples: false
+    normalization: none
+    evaluate_visibility: false
+    depth_tolerance_m: 0.005
+    pixel_boundary_ambiguity_px: 0.0
+    target_output_dtype: float32
+    target_representation: all_views_dxyz_matched_uv_valid_v1
+    wrist_flow_max_magnitude_native_px: 200.0
+    action_mode: baseline_rate_resampled@15Hz
+    action_horizon: 32
+    action_rate_hz: 15.0
+    action_timestamp_tolerance_sec: 1.0e-09
+    proprio_mode: last_command_drive_target
+    image_normalization: minus_one_one
+    context_len: 128
+    context_hidden_size: 4096
+    context_output_dtype: float32
+    pretrained_norm_stats: null
+    require_raw_v1: true
+    max_open_files: 8
+    max_open_episodes: 4
+    max_cached_contexts: 32
+    text_embedding_preload_fork_cow: false
+    text_embedding_preload_max_bytes: null
+    text_embedding_preload_max_node_bytes: null
+    text_embedding_preload_rank_stagger_seconds: 0.0
+    seg_quality_mix_manifest: null
+    seg_quality_mix_seed: 43017
+    source_head_seg_candidates: false
+    strict_pred_head_only: true
+    max_open_seg_cache_files: 8
+    depth_noise_seed: 43018
+    depth_noise:
+      levels:
+      - name: clean
+        probability: 0.4
+        additive_std_m: 0.0
+        relative_std: 0.0
+        camera_scale_abs_max: 0.0
+        edge_pixel_fraction_min: 0.0
+        edge_pixel_fraction_max: 0.0
+      - name: light
+        probability: 0.5
+        additive_std_m: 0.001
+        relative_std: 0.002
+        camera_scale_abs_max: 0.002
+        edge_pixel_fraction_min: 0.0
+        edge_pixel_fraction_max: 0.005
+      - name: medium
+        probability: 0.1
+        additive_std_m: 0.002
+        relative_std: 0.005
+        camera_scale_abs_max: 0.005
+        edge_pixel_fraction_min: 0.005
+        edge_pixel_fraction_max: 0.02
+      edge_corruption:
+        enabled: true
+        depth_jump_abs_min_m: 0.03
+        depth_jump_relative_min: 0.1
+        segment_length_min_px: 2
+        segment_length_max_px: 8
+        foreground_to_background_probability: 0.5
+    episode_paths: []
+  val: null

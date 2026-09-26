@@ -1,0 +1,230 @@
+method:
+  name: M-WAM
+  motion_representation: all_views_3d
+  attention: AC
+  action_tokens: trajectory
+  noise_sampling: high_noise_405505
+model:
+  _target_: mwam.models.pixeldit.factory.create_hybrid_k4_fastwam_pixeldit
+  proprio_dim: 14
+  pixeldit_pretrained_path: null
+  pixeldit_weight_source: auto
+  action_initialization_seed: 43
+  kflow_contract:
+    future_offsets:
+    - 8
+    - 16
+    - 24
+    - 32
+    future_horizons_seconds:
+    - 0.5333333333333333
+    - 1.0666666666666667
+    - 1.6
+    - 2.1333333333333333
+    future_offset_basis: fastwam_clip_frame@15hz
+    view_mode: robotwin_fastwam_mosaic_384x320_v1
+    target_representation: all_views_dxyz_matched_uv_valid_v1
+    source_coordinate_frame: head_camera@source_t0
+    source_normalization: none
+    coordinate_frame: head_camera@source_t0
+    unit: all_views_canonical_meter
+    channel_order: k_major_xyz
+    camera_order:
+    - head_camera
+    - left_camera
+    - right_camera
+    architecture_version: momap_wam_cw_hybrid_allxyz_384x320_k4s8_g26p4_a30_v15
+  normalization_contract:
+    statistics_id: robotwin_allxyz_matched2d_stratified4096_20260924
+    future_offsets:
+    - 8
+    - 16
+    - 24
+    - 32
+    source_mean_xyz_meters:
+    - 0.010645708305307268
+    - 0.04895817558894431
+    - -0.7550955002897234
+    source_std_xyz_meters:
+    - 0.2734047798851918
+    - 0.17070957653298427
+    - 0.15400744531857438
+    head_scale_channels_meters: []
+    wrist_scale_channels_meters: []
+    head_flow_mean_xyz_meters:
+    - 0.0004454643716099158
+    - -0.0005298441303830609
+    - -0.0006565998981648588
+    head_flow_std_xyz_meters:
+    - 0.020128777503447156
+    - 0.014664635871552903
+    - 0.019597151696224013
+    wrist_flow_mean_xyz_meters:
+    - -0.0011799793721345363
+    - 0.00043401040904521656
+    - 0.0026781860166423584
+    wrist_flow_std_xyz_meters:
+    - 0.034183018564904515
+    - 0.02497882126418233
+    - 0.027535178196940777
+    head_height: 256
+    full_height: 384
+    full_width: 320
+    reference_frame: head_camera@source_t0
+    source_unit: all_views_canonical_meter
+    channel_order: k_major_xyz
+    schema_version: robotwin_momap_k4_all_xyz_normalization_v2
+    mode: fixed_source_xyz_affine_head_dxyz_pooled_zscore_wrist_dxyz_pooled_meter_zscore_v1
+    digest: sha256:0caf16f3daca38fa0c2e26936317362df133c14f14943a682fc13f8c192aa6f3
+  action_normalization_artifact_path: null
+  action_normalization_contract:
+    digest: sha256:fda8d7aeae30f380ca6201e62c59b7192ab39ec06fdfae5f22064b36ed8c6bfc
+    feature_dim: 14
+    feature_kind: action
+    mean:
+    - -0.25091410166661393
+    - 1.2446768355246496
+    - 0.8851375260336964
+    - -0.3358802015454091
+    - 0.06137614833044376
+    - -0.025020949017556044
+    - 0.6124145866374928
+    - 0.21578773695572312
+    - 1.0889513045661363
+    - 0.790585720339644
+    - -0.32384699561372654
+    - -0.02119575554739847
+    - 0.023668687514312267
+    - 0.6628694251211633
+    mode: fixed_feature_zscore
+    schema_version: fastwam_fixed_feature_zscore_v1
+    semantic_kind: low_level_joint_drive_target
+    source_normalization: none
+    statistics_id: robotwin-momap-formal-train-v1-action14
+    std:
+    - 0.4378297961786112
+    - 0.9891725854784134
+    - 0.7658968624623618
+    - 0.6805307477920639
+    - 0.2805369985211756
+    - 0.6514261826902819
+    - 0.46727878928995137
+    - 0.29501493066274836
+    - 1.0248698528032345
+    - 0.7951461897798252
+    - 0.6808459392045035
+    - 0.23561041562249127
+    - 0.5622912404776208
+    - 0.45425768766845287
+  proprio_normalization_artifact_path: null
+  proprio_normalization_contract:
+    digest: sha256:3534ea2a6d243bdc8b1c0826c5a987c57821d602b13cbfda4bfbfe2671388873
+    feature_dim: 14
+    feature_kind: proprio
+    mean:
+    - -0.23199281348169556
+    - 1.1752575744707818
+    - 0.8387229871618053
+    - -0.3277796872578249
+    - 0.057029935867009995
+    - -0.011976110465736576
+    - 0.6615037175653798
+    - 0.19056338159492178
+    - 0.9993640307222728
+    - 0.7282754651237708
+    - -0.31057160778851145
+    - -0.018817037001827457
+    - 0.008284918974371424
+    - 0.7117124028555603
+    mode: fixed_feature_zscore
+    schema_version: fastwam_fixed_feature_zscore_v1
+    semantic_kind: last_command_drive_target
+    source_normalization: none
+    statistics_id: robotwin-momap-formal-train-v1-proprio14
+    std:
+    - 0.4271956023969024
+    - 0.9901338768672001
+    - 0.7626439294062798
+    - 0.6578725879274818
+    - 0.2688076623970941
+    - 0.6146744152745054
+    - 0.45655506957445624
+    - 0.28015246756167955
+    - 1.011341718334918
+    - 0.7822183606438369
+    - 0.6489483256000634
+    - 0.21824118815002955
+    - 0.5061814908892782
+    - 0.4380033180032862
+  pixeldit_config:
+    num_groups: 16
+    hidden_size: 1152
+    pixel_hidden_size: 16
+    patch_depth: 26
+    pixel_depth: 4
+    patch_size: 16
+    num_classes: 1000
+    use_pixel_abs_pos: true
+    pit_adaln_post_modulation: false
+    momap_output_hidden_size: 128
+    use_gradient_checkpointing: true
+    validate_finite: false
+  aligned_action_dit_config:
+    action_horizon: 32
+    action_dim: 14
+    hidden_size: 1152
+    num_heads: 16
+    num_layers: 30
+    text_dim: 4096
+    mlp_ratio: 4.0
+    use_gradient_checkpointing: true
+    validate_finite: false
+  train_world_scheduler:
+    _target_: mwam.models.wan22.schedulers.scheduler_continuous.WanHighNoise405505UniformWeightFlowMatchScheduler
+    num_train_timesteps: 1000
+    shift: 5.0
+    eps: 1.0e-10
+  infer_world_scheduler:
+    num_train_timesteps: 1000
+    shift: 5.0
+    eps: 1.0e-10
+  train_action_scheduler:
+    _target_: mwam.models.wan22.schedulers.scheduler_continuous.WanHighNoise405505UniformWeightFlowMatchScheduler
+    num_train_timesteps: 1000
+    shift: 5.0
+    eps: 1.0e-10
+  infer_action_scheduler:
+    num_train_timesteps: 1000
+    shift: 5.0
+    eps: 1.0e-10
+  timestep_coupling: independent
+  loss:
+    lambda_momap: 1.0
+    lambda_action: 1.0
+  kv_source: action_condition
+  normalization_artifact_path: null
+  method_contract:
+    schema_version: fastwam_momap_k4_allxyz_method_contract_ac_v1
+    source_conditioning: source_rgb3_pred_instance_seg3_noisy_canonical_xyz3_head_only_seg_v1
+    world_topology: shared_weight_c_only_and_w_reads_cw_g26_p4_local16_k4_v1
+    world_state: all_dxyz12_head_wrist_carrier12_v1
+    world_attention: c_queries_c_only_w_queries_concat_cw_v1
+    world_timestep: c_clean_fraction_one_w_one_minus_sigma_v1
+    world_position: shared_mosaic_spatial_coordinates_no_cw_type_embed_v1
+    world_loss: normalized_velocity_half_head_xyz_half_mean_nonempty_wrist_xyz_v1
+    world_normalization: source_xyz_affine_head_dxyz_pooled_zscore_wrist_dxyz_pooled_meter_zscore_v1
+    action_tokenization: transpose_b32x14_to_b14x32_then_linear32_to1152_v1
+    action_position: fixed_sincos_actuator_index_0_13_no_temporal_rope_v1
+    kv_adaptation: none_equal_hidden1152_heads16_head_dim72_v1
+    mixed_attention: action_no_rope_q_queries_concat_selected_world_native_then_action_self_kv_direct_no_count_bias_v1
+    train_timestep_coupling: independent
+    inference_timestep_coupling: lockstep_equal_step_count_distinct_schedulers_v1
+    world_model_timestep_coordinate: pixeldit_clean_fraction_from_one_minus_wan_noise_fraction_v1
+    action_model_timestep_coordinate: wan_noise_fraction_0_clean_1_noise_v1
+    topology: hybrid_cw_g26_p4_action30_joint14_action_condition_v1
+    bridge: all_30_layers_concat_c_then_action_self_kv_v1
+    action_world_visibility: c_only_480_world_keys_v1
+  action_tokenization: joint14
+inference:
+  num_inference_steps: 5
+  seed: 20260923
