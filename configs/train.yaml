@@ -1,56 +1,12 @@
-output_dir: null
-batch_size: 1
+batch_size: 1                       # Clips per GPU per optimizer update.
 num_workers: 4
-prefetch_factor: 2
-dataloader_non_blocking: true
-dataloader_rng_isolated: true
-lr_scheduler_type: cosine
-learning_rate: 0.0001
-cosine_min_learning_rate: 1.0e-06
-warmup_ratio: 0.02
-num_epochs: 6
 max_steps: 50000
 log_every: 10
-save_every: 1000
-eval_every: 0
-eval_num_inference_steps: 5
-gradient_accumulation_steps: 1
-training_stage: joint
-strict_resumable_sampler: true
-mixed_precision: bf16
-seed: 43
+learning_rate: 0.0001
+warmup_start_learning_rate: 0.000001
+warmup_ratio: 0.02
+cosine_min_learning_rate: 0.000001
 max_grad_norm: 1.0
 weight_decay: 0.01
-resume: null
-weights_only_warmstart: null
-wandb:
-  enabled: false
-  workspace: null
-  project: mwam
-  name: robotwin_3d_ac
-  group: null
-  mode: online
-train_sampling_mode: all_windows_per_epoch
-failure_replay_manifest: null
-adaptive_replay: null
-persistent_workers: true
-training_timing_enabled: true
-deepspeed_zero2_graph_task_cache_enabled: false
-optimizer_parameter_groups:
-  action_backbone:
-    learning_rate: 0.0001
-    cosine_min_learning_rate: 1.0e-06
-    warmup_start_learning_rate: 1.0e-06
-  action_io:
-    learning_rate: 0.0001
-    cosine_min_learning_rate: 1.0e-06
-    warmup_start_learning_rate: 1.0e-06
-  world:
-    learning_rate: 0.0001
-    cosine_min_learning_rate: 1.0e-06
-    warmup_start_learning_rate: 1.0e-06
-stop_after_step: null
-checkpoint_on_stop_after_step: true
-controlled_model_math_migration: null
-fresh_stage_weights_transition: null
-runtime_checkpoint_control_enabled: false
+mixed_precision: bf16
+seed: 43

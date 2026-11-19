@@ -337,11 +337,6 @@ class HybridCWActionMoT(PixelDiTAlignedActionMoT):
             self._require_nonnegative_step(global_step, name="global_step")
         self._attention_runtime_global_step = global_step
 
-    def native_kv_fusion_transition_contract(
-        self, *, require_bound: bool = False
-    ) -> None:
-        del require_bound
-        return None
 
     @staticmethod
     def _validate_stream_kv(

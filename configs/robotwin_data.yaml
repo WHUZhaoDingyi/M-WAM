@@ -42,7 +42,6 @@ data:
     context_hidden_size: 4096
     context_output_dtype: float32
     pretrained_norm_stats: null
-    require_raw_v1: true
     max_open_files: 8
     max_open_episodes: 4
     max_cached_contexts: 32

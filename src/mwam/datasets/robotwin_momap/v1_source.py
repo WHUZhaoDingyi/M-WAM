@@ -1,4 +1,4 @@
-"""Worker-safe model-visible reader for canonical RoboTwin raw-v1 episodes.
+"""Worker-safe model-visible reader for RoboTwin episode exports.
 
 Only source-time RGB, GT depth/seg-derived canonical XYZ, encoded language,
 current proprioception and future action leave this source as model
@@ -18,7 +18,6 @@ from typing import Any, Callable, Mapping, Protocol, Sequence
 import numpy as np
 import torch
 
-from mwam.robotwin_momap.se3 import SE3_VALIDATION_SCHEMA_VERSION
 from mwam.robotwin_momap.target_service import uniform_cell_center_indices
 
 from .schema import ActionTarget, ModelInputs, PrivateGeometry, SampleRef
@@ -91,7 +90,6 @@ class ResolvedLanguage:
     scope_id: str
     binding_sha256: str | None
     instruction_sha256: str
-
 
 
 def _sha256_bytes(value: bytes) -> str:
@@ -210,30 +208,8 @@ def _encoded_context(
     return context_tensor, torch.ones_like(mask_tensor)
 
 
-def _adapter_identifier(value: Any) -> str:
-    """Return a stable import-style identifier without instance state."""
-
-    module = getattr(value, "__module__", None)
-    qualname = getattr(value, "__qualname__", None)
-    if not isinstance(module, str) or not isinstance(qualname, str):
-        adapter_type = type(value)
-        module = adapter_type.__module__
-        qualname = adapter_type.__qualname__
-    if (
-        not module
-        or not qualname
-        or module == "__main__"
-        or "<locals>" in qualname
-        or "<lambda>" in qualname
-    ):
-        raise ValueError(
-            "resume math adapters must have a stable qualified name"
-        )
-    return f"{module}.{qualname}"
-
-
 class V1CanonicalSampleSource:
-    """Concrete ``CanonicalSampleSource`` backed by raw-v1 HDF5 episodes."""
+    """Concrete ``CanonicalSampleSource`` backed by exported RoboTwin HDF5 episodes."""
 
     def __init__(
         self,
@@ -405,102 +381,6 @@ class V1CanonicalSampleSource:
         return bool(
             getattr(self.context_encoder, "requires_fork_cow_workers", False)
         )
-
-    def resume_math_contract(self) -> dict[str, Any]:
-        """Return only sample-selection and model-input mathematics."""
-
-        config = self.index.config
-        action = config.action
-        contract = {
-            "schema_version": "robotwin_momap_v1_source_math_v1",
-            "source_adapter": _adapter_identifier(type(self)),
-            "index_config": {
-                "future_offsets": list(config.future_offsets),
-                "future_horizons_seconds": (
-                    None
-                    if config.future_horizons_seconds is None
-                    else list(config.future_horizons_seconds)
-                ),
-                "future_offset_basis": config.future_offset_basis,
-                "camera_names": list(config.camera_names),
-                "action": {
-                    "mode": action.mode,
-                    "horizon": action.horizon,
-                    "baseline_rate_hz": action.baseline_rate_hz,
-                    "timestamp_tolerance_sec": (
-                        action.timestamp_tolerance_sec
-                    ),
-                },
-                "proprio_mode": config.proprio_mode,
-                "coordinate_frame": config.coordinate_frame,
-                "require_raw_v1": config.require_raw_v1,
-            },
-            "tensor_semantics": {
-                "image_normalization": self.image_normalization,
-                "condition_grid_size": list(self.condition_grid_size),
-                "reference_camera_name": self.reference_camera_name,
-                "prompt_template": self.prompt_template,
-                "context_output_dtype": self.context_output_dtype,
-                "defer_text_context": self.defer_text_context,
-                "language_resolver_adapter": _adapter_identifier(
-                    self.language_resolver
-                ),
-                "context_encoder_adapter": (
-                    None
-                    if self.context_encoder is None
-                    else _adapter_identifier(self.context_encoder)
-                ),
-                "reader_factory_adapter": _adapter_identifier(
-                    self._reader_factory
-                ),
-                "source_head_seg_candidates": (
-                    self.source_head_seg_candidates
-                ),
-            },
-        }
-        if self.strict_pred_head_only:
-            contract["tensor_semantics"]["strict_pred_head_only"] = True
-        augmentation_contract = self.source_input_augmentation.math_contract()
-        if (
-            augmentation_contract is not None
-            and (
-                self.source_head_seg_candidates
-                or self.strict_pred_head_only
-            )
-            and self.source_input_augmentation.segmentation is not None
-        ):
-            augmentation_contract = dict(augmentation_contract)
-            if self.source_head_seg_candidates:
-                augmentation_contract["segmentation"] = (
-                    self.source_input_augmentation.segmentation
-                    .head_candidate_math_contract()
-                )
-            else:
-                segmentation = self.source_input_augmentation.segmentation
-                augmentation_contract["segmentation"] = {
-                    "schema_version": (
-                        "robotwin_momap_pred_head_strict_math_v1"
-                    ),
-                    "selection_unit": "always_predicted_head_only",
-                    "camera_scope": COMMON_REFERENCE_CAMERA,
-                    "policy_content_digest": (
-                        segmentation.policy_content_digest
-                    ),
-                    "predicted_seg_fields": [
-                        "pred/role_id",
-                        "pred/track_id",
-                    ],
-                    "role_usage": "validation_only_not_model_visible",
-                    "encoding": PREDICTED_TRACK_SEGMENTATION_ENCODING,
-                    "wrist_segmentation": "zero",
-                    "missing_or_invalid_cache_policy": (
-                        "raise_no_gt_fallback"
-                    ),
-                }
-        if augmentation_contract is not None:
-            contract["source_input_augmentation"] = augmentation_contract
-        return contract
-
 
 
     def _reset_caches_after_fork(self) -> None:

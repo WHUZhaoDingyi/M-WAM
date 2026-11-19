@@ -1,4 +1,4 @@
-"""Portable preparation of the native raw-v1 training inputs."""
+"""Prepare training inputs from RoboTwin episode exports."""
 import json
 import os
 from pathlib import Path
@@ -70,7 +70,7 @@ def prepare_data(manifest, template, text_cache, seg_manifest, output):
     prompts = sorted({DEFAULT_PROMPT.format(task=r["instruction"]) for r in records.values()})
     write_json(output / "prompts.json", prompts)
     write_json(output / "perception_manifest.json", dict(schema_version="fastwam.robotwin-predicted-perception-pilot.v1",
-        status="PASS", scope="Manifest structure only, not generated perception quality",
+        status="PASS", scope="Per-episode RGB and instruction manifest",
         aggregate=dict(selected_episode_count=len(perception_rows)), episodes=perception_rows))
     OmegaConf.save(config, output / "data.yaml")
     result = dict(status="DATA_MANIFEST_PREPARED", episode_count=len(episodes), prompt_count=len(prompts),
@@ -81,7 +81,7 @@ def prepare_data(manifest, template, text_cache, seg_manifest, output):
 
 
 def index_segmentation(manifest_path, cache_dir, output):
-    """Index native v3 predicted masks; never synthesize missing masks from GT."""
+    """Index the predicted segmentation masks for each episode."""
     import hashlib
     import h5py
     import numpy as np
@@ -107,7 +107,7 @@ def index_segmentation(manifest_path, cache_dir, output):
         math_rows.append((episode_id, 0.0, "predicted_only_unscored"))
     result = dict(schema_version=SEG_QUALITY_MIX_MANIFEST_SCHEMA, episode_count=len(entries),
                   policy_content_digest=_canonical_digest(sorted(math_rows)), episodes=entries,
-                  note="Predicted-only head segmentation; no empirical quality score is claimed.")
+                  note="Per-frame predicted head-camera segmentation masks.")
     write_json(output, result)
     return dict(status="SEGMENTATION_INDEX_COMPLETE", episode_count=len(entries))
 
@@ -131,11 +131,10 @@ def encode_text(prompts_path, cache_dir, weights=None, tokenizer_path=None, devi
             todo.append(prompt)
     if todo:
         if weights is None or tokenizer_path is None or not Path(weights).is_file() or not Path(tokenizer_path).is_dir():
-            raise FileNotFoundError(f"{len(todo)} prompts need local Wan T5 weights and tokenizer; no zero/random embedding fallback")
-        from .models.wan22.helpers.loader import _load_registered_model
+            raise FileNotFoundError(f"{len(todo)} prompts need local Wan T5 weights and tokenizer")
+        from .models.wan22.helpers.loader import load_text_encoder
         from .models.wan22.wan_video_text_encoder import HuggingfaceTokenizer
-        model = _load_registered_model(str(weights), "wan_video_text_encoder", torch_dtype=torch.bfloat16,
-                                       device=device, low_memory=True).eval()
+        model = load_text_encoder(str(weights), device)
         tokenizer = HuggingfaceTokenizer(name=str(tokenizer_path), seq_len=128, clean="whitespace")
         with torch.inference_mode():
             for start in range(0, len(todo), batch_size):

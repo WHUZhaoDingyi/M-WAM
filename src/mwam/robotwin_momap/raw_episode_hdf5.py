@@ -89,7 +89,7 @@ def _canonical_json(value: Any) -> str:
 
 
 def raw_episode_v1_geometry_contract() -> dict[str, Any]:
-    """Canonical physical/logical contract shared by all raw-v1 writers."""
+    """Canonical physical/logical contract shared by the HDF5 episode writers."""
 
     return {
         "schema_version": RAW_EPISODE_SCHEMA_V1,
@@ -124,7 +124,7 @@ def raw_episode_v1_geometry_contract() -> dict[str, Any]:
 
 
 def raw_episode_v1_geometry_contract_sha256() -> str:
-    """Stable digest binding direct and converted raw-v1 episodes."""
+    """Stable digest binding direct and converted HDF5 episodes."""
 
     return hashlib.sha256(
         _canonical_json(raw_episode_v1_geometry_contract()).encode("utf-8")
@@ -374,8 +374,7 @@ class RawEpisodeWriter:
             raise FileExistsError(f"final episode already exists: {self.final_path}")
         if self.partial_path.exists():
             raise FileExistsError(
-                f"partial episode already exists: {self.partial_path}; "
-                "resume or remove it explicitly after inspection"
+                f"Partial episode already exists: {self.partial_path}"
             )
 
         self.camera_specs = _normalise_camera_specs(camera_specs)
@@ -721,7 +720,7 @@ class RawEpisodeWriter:
         if self.geometry_encoding == RAW_EPISODE_V1_GEOMETRY_ENCODING:
             # SAPIEN uses actor id 0 for renderer no-hit pixels.  Their finite
             # Position payload is not physical scene geometry and can change
-            # discontinuously as silhouettes cross the pixel, so raw-v1 must
+            # discontinuously as silhouettes cross the pixel, so the episode export must
             # not use it to establish or validate an episode-static ray.
             valid = np.logical_and(valid.astype(bool), actor_seg != 0).astype(
                 np.uint8
@@ -1461,42 +1460,42 @@ class RawEpisodeReader:
         for camera_name, geometry in handle["private_geometry"].items():
             if "position_xyz" in geometry or "depth_m" not in geometry:
                 raise ValueError(
-                    f"raw v1 camera {camera_name!r} must contain depth_m and "
+                    f"exported camera {camera_name!r} must contain depth_m and "
                     "must not physically contain position_xyz"
                 )
             depth = geometry["depth_m"]
             valid = geometry.get("position_valid")
             if valid is None or depth.shape != valid.shape:
                 raise ValueError(
-                    f"raw v1 camera {camera_name!r} depth/valid shape mismatch"
+                    f"exported camera {camera_name!r} depth/valid shape mismatch"
                 )
             if depth.shape[0] != frame_count or depth.dtype != np.dtype("float32"):
                 raise ValueError(
-                    f"raw v1 camera {camera_name!r} depth_m must be "
+                    f"exported camera {camera_name!r} depth_m must be "
                     f"float32[T,H,W], got {depth.shape} {depth.dtype}"
                 )
             if "ray_xy" not in geometry or "ray_valid" not in geometry:
                 raise ValueError(
-                    f"raw v1 camera {camera_name!r} is missing static ray data"
+                    f"exported camera {camera_name!r} is missing static ray data"
                 )
             if "K" not in geometry or geometry["K"].shape != (3, 3):
                 raise ValueError(
-                    f"raw v1 camera {camera_name!r} K must be episode-static [3,3]"
+                    f"exported camera {camera_name!r} K must be episode-static [3,3]"
                 )
             if geometry["K"].dtype != np.dtype("float32"):
                 raise ValueError(
-                    f"raw v1 camera {camera_name!r} K must be float32"
+                    f"exported camera {camera_name!r} K must be float32"
                 )
             expected_shape = tuple(int(value) for value in depth.shape[1:])
             ray = geometry["ray_xy"]
             ray_valid = geometry["ray_valid"]
             if ray.shape != (*expected_shape, 2) or ray.dtype != np.dtype("float32"):
                 raise ValueError(
-                    f"raw v1 camera {camera_name!r} ray_xy has invalid layout"
+                    f"exported camera {camera_name!r} ray_xy has invalid layout"
                 )
             if ray_valid.shape != expected_shape or ray_valid.dtype != np.dtype("uint8"):
                 raise ValueError(
-                    f"raw v1 camera {camera_name!r} ray_valid has invalid layout"
+                    f"exported camera {camera_name!r} ray_valid has invalid layout"
                 )
 
             residual_fields = {
@@ -1507,7 +1506,7 @@ class RawEpisodeReader:
             if schema_version == RAW_EPISODE_SCHEMA_V1:
                 if present_residuals:
                     raise ValueError(
-                        f"raw v1 camera {camera_name!r} unexpectedly contains "
+                        f"exported camera {camera_name!r} unexpectedly contains "
                         f"exact-position residuals: {sorted(present_residuals)}"
                     )
                 continue

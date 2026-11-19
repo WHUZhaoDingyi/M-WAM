@@ -27,7 +27,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.checkpoint import checkpoint
 
-from mwam.utils.checkpoint_integrity import validate_floating_state_dict
+from mwam.utils.weights import validate_floating_state_dict
 
 from .conditioning import WorldConditioningContract
 from .modules import (

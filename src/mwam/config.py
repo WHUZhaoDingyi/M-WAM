@@ -38,7 +38,7 @@ def validate_config(config):
         if model.get(key) != value:
             raise ValueError(f"model.{key} must be {value!r}")
     if model.kflow_contract.target_representation != "all_views_dxyz_matched_uv_valid_v1":
-        raise ValueError("Main method requires all-view dXYZ, not the historical dXYZ/dUV hybrid")
+        raise ValueError("RoboTwin training uses XYZ displacements in all views")
     if model.kflow_contract.unit != "all_views_canonical_meter":
         raise ValueError("All motion components must be in the canonical metric frame")
     for name in ("train_world_scheduler", "train_action_scheduler"):

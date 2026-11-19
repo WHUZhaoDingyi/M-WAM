@@ -205,30 +205,6 @@ class PooledQualitySegmentationMix:
         self._entries = entries
         self._pool = _PIDH5Pool(max_open_files)
 
-    def math_contract(self) -> dict[str, object]:
-        return {
-            "schema_version": SEG_QUALITY_MIX_MATH_SCHEMA,
-            "selection_unit": "episode_epoch_source_window_shared_three_camera",
-            "probability_schedule": "fixed_by_episode_quality_bucket",
-            "selection_hash": "sha256_u64_v1",
-            "seed": self.seed,
-            "policy_content_digest": self.policy_content_digest,
-            "predicted_seg_field": "pred/track_id",
-            "missing_or_invalid_cache_policy": "all_three_cameras_gt",
-        }
-
-    def head_candidate_math_contract(self) -> dict[str, object]:
-        """Bind strict candidate loading without claiming a worker-side mix."""
-
-        return {
-            "schema_version": HEAD_ROLE_TRACK_CANDIDATE_MATH_SCHEMA,
-            "selection_unit": "none_return_both_candidates",
-            "camera_scope": HEAD_CAMERA_NAME,
-            "policy_content_digest": self.policy_content_digest,
-            "predicted_seg_fields": ["pred/role_id", "pred/track_id"],
-            "encoding": "role_plus_camera_local_track_rgb3_v1",
-            "missing_or_invalid_cache_policy": "raise_no_gt_fallback",
-        }
 
     @staticmethod
     def _validate_cache(
@@ -637,63 +613,6 @@ class SourceDepthNoiseAugmentation:
             else DEPTH_EDGE_NOISE_MATH_SCHEMA
         )
 
-    def math_contract(self) -> dict[str, object]:
-        contract: dict[str, object] = {
-            "schema_version": self.math_schema_version,
-            "scope": "model_visible_source_depth_and_derived_xyz_only",
-            "seed": self.seed,
-            "selection_hash": "sha256_u64_v1",
-            "selection_unit": "episode_epoch_source_window",
-            "equation": "d_aug=(1+s_camera)*d_gt+(a+b*d_gt)*normal01",
-            "levels": [
-                {
-                    "name": level.name,
-                    "probability": level.probability,
-                    "additive_std_m": level.additive_std_m,
-                    "relative_std": level.relative_std,
-                    "camera_scale_abs_max": level.camera_scale_abs_max,
-                }
-                for level in self.levels
-            ],
-        }
-        if self.edge_corruption is None:
-            return contract
-        for raw_level, level in zip(contract["levels"], self.levels, strict=True):
-            raw_level["edge_pixel_fraction_min"] = (
-                level.edge_pixel_fraction_min
-            )
-            raw_level["edge_pixel_fraction_max"] = (
-                level.edge_pixel_fraction_max
-            )
-        edge = self.edge_corruption
-        contract["edge_corruption"] = {
-            "rng_stream": "sha256_seeded_depth_edge_values_v1",
-            "detection_source": "raw_gt_depth_before_scale_gaussian",
-            "neighborhood": "valid_horizontal_vertical_4_connected_pairs",
-            "jump_rule": (
-                "abs(d0-d1)>=max(depth_jump_abs_min_m,"
-                "depth_jump_relative_min*min(d0,d1))"
-            ),
-            "depth_jump_abs_min_m": edge.depth_jump_abs_min_m,
-            "depth_jump_relative_min": edge.depth_jump_relative_min,
-            "fraction_denominator": "unique_valid_edge_endpoint_pixel_count",
-            "target_count_rule": (
-                "min(floor(fraction*eligible_edge_pixels),"
-                "eligible_edge_pairs)"
-            ),
-            "underfill_policy": (
-                "allow_only_when_unique_target_collisions_exhaust_edge_pairs"
-            ),
-            "segment_length_min_px": edge.segment_length_min_px,
-            "segment_length_max_px": edge.segment_length_max_px,
-            "operation_unit": "contiguous_edge_segment",
-            "final_segment_policy": "truncate_at_exact_target_budget",
-            "foreground_to_background_probability": (
-                edge.foreground_to_background_probability
-            ),
-            "copy_source": "post_scale_gaussian_snapshot",
-        }
-        return contract
 
     def _selected_level(
         self,
@@ -1033,15 +952,6 @@ class SourceInputAugmentation:
     def enabled(self) -> bool:
         return self.segmentation is not None or self.depth is not None
 
-    def math_contract(self) -> dict[str, object] | None:
-        if not self.enabled:
-            return None
-        return {
-            "segmentation": (
-                None if self.segmentation is None else self.segmentation.math_contract()
-            ),
-            "depth": None if self.depth is None else self.depth.math_contract(),
-        }
 
     def close(self) -> None:
         if self.segmentation is not None:

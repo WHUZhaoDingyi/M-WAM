@@ -117,8 +117,6 @@ FASTWAM_FULLRES_KFLOW_RAW_FLOW_RESIDUAL_ARCHITECTURE_VERSION = (
     "momap_wam_rgb_seg_xyz_offset_384x320_26x26_lgf128_raw24res_v6"
 )
 # K=1 experiment: retain V6's raw-flow residual topology while making the
-# three-channel output contract explicit. A separate version prevents K=1
-# checkpoints from being resumed under the canonical K=8/raw24 semantics.
 FASTWAM_FULLRES_KFLOW_K1_RAW_FLOW_RESIDUAL_ARCHITECTURE_VERSION = (
     "momap_wam_rgb_seg_xyz_offset_384x320_26x26_lgf128_raw3res_k1_v1"
 )
@@ -131,8 +129,7 @@ FASTWAM_FULLRES_KFLOW_LOCAL24_RAW_FLOW_RESIDUAL_ARCHITECTURE_VERSION = (
 )
 # Same V7 H8-S4/Local24/raw-flow-residual World, with the Action30 tail
 # consuming one corresponding PiT compact K/V sequence and no concatenated
-# final-global sequence.  The explicit architecture identity prevents this
-# topology from being resumed as the older Action30 concat method.
+# final-global sequence.
 FASTWAM_FULLRES_KFLOW_H8S4_LOCAL24_RAW_FLOW_RESIDUAL_ACTION30_PIT_KV_ARCHITECTURE_VERSION = (
     "momap_wam_rgb_seg_xyz_offset_384x320_h8s4_g26p4_a30pitkv_"
     "lgf128_raw24res_dpix24_v8"

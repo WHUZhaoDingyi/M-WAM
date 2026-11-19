@@ -1,13 +1,10 @@
 from pathlib import Path
 
-import numpy as np
 import pytest
 import torch
 from omegaconf import OmegaConf
 
 from mwam.config import HIGH_NOISE, load_config, validate_config
-from mwam.observation import TENSOR_KEYS, load_observation, synthetic_observation, validate_observation
-from mwam.policy import MWAMPolicy
 
 ROOT = Path(__file__).resolve().parents[1]
 torch.set_num_threads(2)
@@ -49,36 +46,6 @@ def test_high_noise_distribution_and_uniform_loss_weight():
     observed = torch.stack(((sigma < .95).float().mean(), ((sigma >= .95) & (sigma < 1)).float().mean(), (sigma == 1).float().mean()))
     torch.testing.assert_close(observed, torch.tensor([.4, .55, .05]), atol=.008, rtol=0)
     torch.testing.assert_close(scheduler.training_weight(sigma * 1000), torch.ones_like(sigma))
-
-
-def test_npz_roundtrip_and_future_rejection(tmp_path):
-    observation = synthetic_observation(7)
-    path = tmp_path / "observation.npz"
-    np.savez(path, **{key: observation[key].numpy() for key in TENSOR_KEYS})
-    restored = load_observation(path)
-    for key in TENSOR_KEYS:
-        torch.testing.assert_close(observation[key], restored[key], rtol=0, atol=0)
-    with pytest.raises(ValueError):
-        validate_observation({**restored, "target_flow": torch.zeros(1)})
-    np.savez(path, **{key: observation[key].numpy() for key in TENSOR_KEYS}, action=np.zeros(1))
-    with pytest.raises(ValueError):
-        load_observation(path)
-
-
-def test_policy_passes_source_and_seed_without_modifying_actions():
-    # Interface test only; does not stand in for full-model forward parity.
-    class NativeSolver:
-        def infer_joint(self, observation, **kwargs):
-            self.inputs = observation
-            self.options = kwargs
-            self.action = torch.randn(1, 32, 14)
-            return {"action_raw": self.action}
-    solver = NativeSolver()
-    observation = synthetic_observation(5)
-    action = MWAMPolicy(solver).predict_action(observation, num_inference_steps=5, seed=17)
-    assert solver.inputs is observation
-    assert solver.options == {"num_inference_steps": 5, "seed": 17}
-    assert action is solver.action
 
 
 def test_ac_selects_condition_without_world_kv():

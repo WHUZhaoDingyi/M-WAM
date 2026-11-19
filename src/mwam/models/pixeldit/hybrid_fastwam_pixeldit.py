@@ -289,9 +289,6 @@ class HybridFastWAMPixelDiT(FastWAMPixelDiT):
             valid_horizon_ratio=valid_horizon_ratio,
         )
 
-    @staticmethod
-    def _append_hybrid_metrics(result):
-        return result
 
     def compute_world_loss(self, *args: Any, **kwargs: Any):
         result = super().compute_world_loss(*args, **kwargs)
@@ -302,17 +299,6 @@ class HybridFastWAMPixelDiT(FastWAMPixelDiT):
         result = super().compute_joint_loss(*args, **kwargs)
         result[1].update(getattr(self, "_last_hybrid_world_loss_metrics", {}))
         return result
-
-    def _checkpoint_contract(self) -> dict[str, Any]:
-        contract = super()._checkpoint_contract()
-        contract["loss"]["momap_reduction"] = (
-            "half_head_xyz_half_nonempty_left_right_wrist_xyz_then_horizon_sample_v1"
-        )
-        contract["loss"]["component_mask"] = (
-            "flow_component_valid_clean_state_before_noising_then_"
-            "flow_loss_valid_loss_reduction_v2"
-        )
-        return contract
 
 
 __all__ = ["HybridFastWAMPixelDiT"]

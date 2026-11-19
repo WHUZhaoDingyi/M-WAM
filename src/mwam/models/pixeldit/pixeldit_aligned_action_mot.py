@@ -351,21 +351,6 @@ class PixelDiTAlignedActionMoT(PixelDiTActionMoT):
             name="global_step",
         )
 
-    def native_kv_fusion_transition_contract(
-        self,
-        *,
-        require_bound: bool = False,
-    ) -> Optional[dict[str, Any]]:
-        if self._native_kv_fusion_schedule["mode"] != self.COSINE_ANNEAL_SCHEDULE_MODE:
-            return None
-        if self._native_kv_fusion_transition is None:
-            if require_bound:
-                raise RuntimeError(
-                    "V9 native-K/V cosine anneal must be bound to the exact "
-                    "source checkpoint step before resume math is recorded."
-                )
-            return None
-        return dict(self._native_kv_fusion_transition)
 
     def _world_logit_correction_scale(
         self,

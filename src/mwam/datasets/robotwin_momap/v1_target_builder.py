@@ -24,7 +24,6 @@ from typing import Any
 import numpy as np
 import torch
 
-from mwam.robotwin_momap.se3 import SE3_VALIDATION_SCHEMA_VERSION
 from mwam.robotwin_momap.target_service import (
     MOMAP_REPRESENTATION_CANONICAL_DXYZ,
     MOMAP_REPRESENTATION_SOURCE_ALIGNED_IMAGE_FLOW_PX,
@@ -232,50 +231,6 @@ class V1CPUMoMapTargetBuilder:
         self._services.clear()
         self._owner_pid = current_pid
 
-    def resume_binding(self) -> dict[str, Any]:
-        factory_module = getattr(
-            self._service_factory,
-            "__module__",
-            type(self._service_factory).__module__,
-        )
-        factory_name = getattr(
-            self._service_factory,
-            "__qualname__",
-            type(self._service_factory).__qualname__,
-        )
-        binding = {
-            "schema_version": "robotwin_momap_v1_cpu_target_builder_binding_v1",
-            "target_builder_adapter": (
-                f"{type(self).__module__}.{type(self).__qualname__}"
-            ),
-            "target_service_factory": f"{factory_module}.{factory_name}",
-            "target_service_factory_production_auditable": (
-                self._service_factory is _default_service_factory
-            ),
-            "grid_size": list(self.grid_size),
-            "output_dtype": self.output_dtype.name,
-            "evaluate_visibility": self.evaluate_visibility,
-            "depth_tolerance_m": self.depth_tolerance_m,
-            "pixel_boundary_ambiguity_px": self.pixel_boundary_ambiguity_px,
-            "reference_camera_name": self.reference_camera_name,
-            "target_representation": self.target_representation,
-            "max_open_episodes": self.max_open_episodes,
-            "se3_validation_schema_version": SE3_VALIDATION_SCHEMA_VERSION,
-        }
-        if self.wrist_flow_max_magnitude_native_px is not None:
-            binding["wrist_flow_max_magnitude_native_px"] = (
-                self.wrist_flow_max_magnitude_native_px
-            )
-            binding["momap_loss_valid_semantics"] = (
-                "component_valid_and_native_wrist_duv_l2_gate_v1"
-            )
-        if self.wrist_flow_gt_background_filter:
-            binding["wrist_flow_gt_background_filter"] = True
-            binding["momap_loss_valid_semantics"] = (
-                "component_valid_and_gt_entity_background_exclusion_v1"
-            )
-            binding["gt_background_entity_names"] = ["background", "ground", "table", "wall"]
-        return binding
 
     def _service_for(self, episode_path: str | Path) -> Any:
         self._reset_after_fork()

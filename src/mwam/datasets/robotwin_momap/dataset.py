@@ -10,16 +10,12 @@ prevents look-ahead data from becoming a model input by accident.
 
 from __future__ import annotations
 
-import json
 from dataclasses import replace
-from typing import Any, Callable, Mapping, Sequence
+from typing import Callable, Mapping, Sequence
 
 import torch
 from torch.utils.data import Dataset
 
-from mwam.evaluation.contracts import (
-    STANDALONE_MOMAP_CHECKPOINT_EVALUATOR,
-)
 
 from .collator import MoMapCollator
 from .interfaces import CanonicalSampleSource, MoMapTargetBuilder
@@ -58,43 +54,6 @@ def finiteize_invalid_momap(target: MoMapTarget) -> MoMapTarget:
     return replace(target, momap=finite_momap)
 
 
-def _stable_callable_identifier(value: Any) -> str:
-    module = getattr(value, "__module__", None)
-    qualname = getattr(value, "__qualname__", None)
-    if not isinstance(module, str) or not isinstance(qualname, str):
-        adapter_type = type(value)
-        module = adapter_type.__module__
-        qualname = adapter_type.__qualname__
-    if (
-        not module
-        or not qualname
-        or module == "__main__"
-        or "<locals>" in qualname
-        or "<lambda>" in qualname
-    ):
-        raise ValueError(
-            "target_transform must have a stable qualified name"
-        )
-    return f"{module}.{qualname}"
-
-
-def _reject_provenance_keys(value: Any) -> None:
-    if isinstance(value, Mapping):
-        for key, nested in value.items():
-            normalized = str(key).lower()
-            if any(
-                fragment in normalized
-                for fragment in ("path", "sha", "receipt")
-            ):
-                raise ValueError(
-                    "resume math contract must not contain path/SHA/receipt keys"
-                )
-            _reject_provenance_keys(nested)
-    elif isinstance(value, (list, tuple)):
-        for nested in value:
-            _reject_provenance_keys(nested)
-
-
 class RoboTwinMoMapDataset(Dataset):
     """Compose model-visible inputs and labels for one indexed sample.
 
@@ -103,7 +62,6 @@ class RoboTwinMoMapDataset(Dataset):
     ``PrivateGeometry``.  Neither object is interpreted by this class.
     """
 
-    in_trainer_evaluation_contract = STANDALONE_MOMAP_CHECKPOINT_EVALUATOR
 
     def __init__(
         self,
@@ -144,101 +102,6 @@ class RoboTwinMoMapDataset(Dataset):
         return bool(
             getattr(self.source, "requires_fork_cow_workers", False)
         )
-
-    def resume_math_contract(self) -> dict[str, Any]:
-        """Return finite JSON mathematics needed for exact retraining."""
-
-        source_provider = getattr(
-            self.source,
-            "resume_math_contract",
-            None,
-        )
-        if not callable(source_provider):
-            raise TypeError(
-                "source must provide resume_math_contract()"
-            )
-        source_contract = source_provider()
-        if not isinstance(source_contract, Mapping):
-            raise TypeError(
-                "source resume_math_contract() must return a mapping"
-            )
-
-        binding_provider = getattr(
-            self.target_builder,
-            "resume_binding",
-            None,
-        )
-        if not callable(binding_provider):
-            raise TypeError(
-                "target_builder must provide resume_binding()"
-            )
-        binding = binding_provider()
-        if not isinstance(binding, Mapping):
-            raise TypeError(
-                "target_builder resume_binding() must return a mapping"
-            )
-        target_fields = (
-            "target_builder_adapter",
-            "target_service_factory",
-            "grid_size",
-            "output_dtype",
-            "evaluate_visibility",
-            "depth_tolerance_m",
-            "pixel_boundary_ambiguity_px",
-            "reference_camera_name",
-            "se3_validation_schema_version",
-        )
-        missing = [field for field in target_fields if field not in binding]
-        if missing:
-            raise ValueError(
-                "target_builder resume binding is missing math fields: "
-                f"{missing}"
-            )
-        target_contract = {
-            field: binding[field] for field in target_fields
-        }
-        # Historical injected builders predate explicit representation.  Their
-        # only legal interpretation is the legacy all-view canonical XYZ
-        # target; production hybrid builders publish the field explicitly.
-        target_contract["target_representation"] = binding.get(
-            "target_representation",
-            "canonical_dxyz_all_views_v1",
-        )
-        if "wrist_flow_max_magnitude_native_px" in binding:
-            target_contract["wrist_flow_max_magnitude_native_px"] = binding[
-                "wrist_flow_max_magnitude_native_px"
-            ]
-            target_contract["momap_loss_valid_semantics"] = binding[
-                "momap_loss_valid_semantics"
-            ]
-        if binding.get("wrist_flow_gt_background_filter") is True:
-            for field in ("wrist_flow_gt_background_filter", "momap_loss_valid_semantics",
-                          "gt_background_entity_names"):
-                target_contract[field] = binding[field]
-        transform_identifier = (
-            None
-            if self.target_transform is None
-            else _stable_callable_identifier(self.target_transform)
-        )
-        contract: dict[str, Any] = {
-            "schema_version": "robotwin_momap_dataset_math_v1",
-            "source": dict(source_contract),
-            "target_builder": target_contract,
-            "target_transform": transform_identifier,
-        }
-        _reject_provenance_keys(contract)
-        try:
-            json.dumps(
-                contract,
-                ensure_ascii=False,
-                sort_keys=True,
-                allow_nan=False,
-            )
-        except (TypeError, ValueError) as exc:
-            raise ValueError(
-                "resume math contract must be finite pure JSON"
-            ) from exc
-        return contract
 
 
     def episode_index_ranges(self) -> tuple[tuple[int, int], ...]:

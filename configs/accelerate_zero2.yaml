@@ -14,5 +14,5 @@ deepspeed_config:
   offload_optimizer_device: none
   offload_param_device: none
   zero3_init_flag: false
-  gradient_accumulation_steps: auto
+  gradient_accumulation_steps: 1
   gradient_clipping: 1.0

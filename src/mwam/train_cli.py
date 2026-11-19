@@ -1,7 +1,5 @@
 """Data preparation and full native training command line."""
 import argparse
-import json
-import os
 from pathlib import Path
 
 
@@ -9,25 +7,24 @@ COMMANDS = ("prepare-data", "encode-text", "index-segmentation", "check-data", "
 
 
 def assemble_training_config(args):
-    from omegaconf import OmegaConf
+    from omegaconf import OmegaConf, open_dict
     from .config import load_config, validate_config
     model = load_config(args.model_config)
     cfg = OmegaConf.merge(OmegaConf.load(args.config),
                           {"model": model.model, "method": model.method},
-                          OmegaConf.load(args.data_config), OmegaConf.from_dotlist(args.set))
-    cfg.output_dir = str(args.output_dir.expanduser().resolve())
+                          OmegaConf.load(args.data_config))
+    OmegaConf.set_struct(cfg, True)
+    cfg.merge_with_dotlist(args.set)
+    with open_dict(cfg):
+        cfg.output_dir = str(args.output_dir.expanduser().resolve())
     cfg.model.pixeldit_pretrained_path = str(args.pixeldit_pretrained.expanduser().resolve())
-    if args.resume is not None:
-        cfg.resume = str(args.resume.expanduser().resolve())
     validate_config(cfg)
-    if cfg.eval_every != 0:
-        raise ValueError("MoMap uses standalone validation; keep eval_every=0")
-    if cfg.training_stage != "joint" or not cfg.data.train.strict_pred_head_only:
-        raise ValueError("Main recipe requires joint training and predicted head segmentation")
-    if cfg.max_steps is None or cfg.max_steps < 1 or cfg.batch_size < 1 or cfg.gradient_accumulation_steps < 1:
-        raise ValueError("max_steps, batch_size and gradient_accumulation_steps must be positive")
-    if cfg.resume is not None and not Path(cfg.resume).is_dir():
-        raise ValueError("--resume requires a full checkpoint state directory, not a weights .pt file")
+    if not cfg.data.train.strict_pred_head_only:
+        raise ValueError("The RoboTwin recipe requires predicted head-camera segmentation.")
+    if min(cfg.max_steps, cfg.batch_size, cfg.log_every) < 1 or cfg.num_workers < 0:
+        raise ValueError("Check max_steps, batch_size, num_workers and log_every.")
+    if not 0 <= cfg.warmup_ratio < 1 or not 0 < cfg.cosine_min_learning_rate <= cfg.learning_rate:
+        raise ValueError("Check warmup_ratio and learning-rate settings.")
     if not Path(cfg.model.pixeldit_pretrained_path).is_file():
         raise FileNotFoundError(cfg.model.pixeldit_pretrained_path)
     # Reject data/model mismatches before constructing the 1.61B network.
@@ -71,7 +68,6 @@ def main(argv=None):
         p = sub.add_parser(command)
         for flag in ("config", "model-config", "data-config", "pixeldit-pretrained", "output-dir"):
             p.add_argument("--" + flag, type=Path, required=True)
-        p.add_argument("--resume", type=Path)
         p.add_argument("--set", action="append", default=[], metavar="KEY=VALUE")
         if command == "check-training-config":
             p.add_argument("--output", type=Path, required=True)
@@ -100,18 +96,11 @@ def main(argv=None):
         else:
             import torch
             if not torch.cuda.is_available():
-                raise RuntimeError("Full M-WAM training requires CUDA; use check-data for CPU data preparation")
-            output = Path(cfg.output_dir)
-            if cfg.resume is None and (output / "checkpoints").exists():
-                raise FileExistsError("Existing training run: use --resume or a new output directory")
-            output.mkdir(parents=True, exist_ok=True)
+                raise RuntimeError("RoboTwin model training requires CUDA.")
             from .runtime import run_training
-            trainer = run_training(cfg)
-            result = dict(status="TRAINING_COMPLETE" if trainer.global_step == trainer.max_steps else "TRAINING_STOPPED_AT_REQUESTED_STEP",
-                          last_recorded_step=trainer.global_step, max_steps=cfg.max_steps, stop_after_step=cfg.get("stop_after_step"),
-                          output_dir=str(output), checkpoints=str(output / "checkpoints"))
-            if int(os.environ.get("RANK", "0")) == 0:
-                write_json(output / "summary.json", result)
+            weights = run_training(cfg)
+            print(f"Saved {weights}", flush=True)
+            return
     print(result["status"], flush=True)
     print("Result:", str(getattr(args, "output", None) or args.output_dir), flush=True)
 

@@ -107,8 +107,6 @@ class GeometryNormalizationContract:
     xyz_center: tuple[float, ...]
     xyz_scale: tuple[float, ...]
     offset_scale: tuple[float, ...]
-    # Legacy offline-audit metadata is optional and is never required by the
-    # model factory, checkpoint contract, or resume path.
     split_name: str | None = None
     split_manifest_sha256: str | None = None
     dataset_receipt_sha256: str | None = None

@@ -1,4 +1,4 @@
-"""Deterministic training-window index for canonical RoboTwin raw-v1 episodes.
+"""Deterministic training-window index for RoboTwin episode exports.
 
 The index is deliberately manifest driven.  It never globs a data root and it
 never pads an episode tail.  A source frame is present only when every MoMap
