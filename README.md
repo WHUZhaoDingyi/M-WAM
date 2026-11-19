@@ -1,5 +1,7 @@
 # M-WAM
 
+**LIBERO 联合训练** · [最小训练实现与启动命令](libero/README.md) · [数据准备](libero/DATA.md)。以下为 RoboTwin 训练说明。
+
 主方法：**全视角 3D 运动表示 / AC 注意力 / 轨迹 action token / 高噪声训练采样**。
 
 本仓库包含从 RoboTwin raw-v1 数据准备、窗口采样、DataLoader，到模型训练、保存、断点恢复和结束的代码；另提供严格权重加载及动作推理接口。训练依赖外部数据、PixelDiT 初始化权重、文本编码与预测分割资产。它不是包含所有权重和模拟器的免配置安装包。

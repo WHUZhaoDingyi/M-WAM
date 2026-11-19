@@ -1,0 +1,14 @@
+# Original LIBERO, four suites. Joint action + 3D flow matching.
+seed: 43
+batch_per_rank: 8                    # The reference run uses four ranks (32 clips/update).
+workers: 4
+max_steps: 100000
+log_every: 10
+learning_rate: 0.0001
+warmup_start_lr: 0.000001
+warmup_steps: 1000
+minimum_lr: 0.000001
+weight_decay: 0.01
+betas: [0.9, 0.95]
+max_grad_norm: 1.0
+activation_checkpointing: true
